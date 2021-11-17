@@ -10,8 +10,6 @@ Global Shaper and Fullstack developer working at Zebra Technologies and Somos Ne
 Global Shaper y desarrollador Fullstack trabajando en Zebra Technologies y Somos Networks. Me encanta dar mentorias, actualmente trabajando en Make It Real.
 ```
 
-Cuentanos algo sobre ti que te gustara todos conocieramos: Quien eres? que te gusta hacer? De donde eres?
-
 ## Social Media
 
 - [Github](https://github.com/pablovem/)
