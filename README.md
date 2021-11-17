@@ -1,7 +1,7 @@
 # Programa Top v11 -  Tiempo Parcial
 
 ## Mentores 👩🏻‍🏫👨🏼‍🏫
-- [Pablo Velasquez](profiles/mentor-principal.md)
+- [Pablo Velasquez](profiles/pablo-velasquez.md)
 - Sara Del Valle Restrepo
 - Kelly Correa
 
@@ -15,7 +15,7 @@
 - Fernando Rodriguez
 - Carlos Reinoso
 - Alfredo Portocarrero
-- Juan Buitrago
+- Juan Buitragǒ
 - Giovanni García
 - Piero Loza
 - Nedes Vera
