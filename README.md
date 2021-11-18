@@ -1,5 +1,9 @@
 # Programa Top v11 -  Tiempo Parcial
 
+## Encuentros
+Principales: L-M-V
+Adicionales: M-J
+
 ## Mentores 👩🏻‍🏫👨🏼‍🏫
 - [Pablo Velasquez](profiles/pablo-velasquez.md)
 - Sara Del Valle Restrepo
