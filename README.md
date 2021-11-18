@@ -22,7 +22,7 @@ Adicionales: M-J
 10. Juan Buitragǒ
 11. Giovanni García
 12. Piero Loza
-13. Aldhair Vera
+13. Nedes Vera
 14. Maritza Flor Salas
 15. Johann Gonzales
 16. Kerwin Sandoval
