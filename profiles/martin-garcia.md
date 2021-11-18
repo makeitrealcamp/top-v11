@@ -1,9 +1,15 @@
 # MARTIN GARCIA
-
+```
 I'm a Web Developer.
 I like web programming and also videogames.
+```
+
+---
+
+```
 In my free time I like to play guitar or play video games.
 My favorite video game is The elder scrolls online.
+```
 
 ## Social Media
 
