@@ -11,7 +11,7 @@ Adicionales: M-J
 
 ## Estudiantes 👩🏻‍💻🧑🏼‍💻
 1. Maray Montes De Oca
-2. Giantory Espino
+2. [Giantory Espino](profiles/giantory-espino.md)
 3. Carlos Sucre
 4. Jhon García
 5. Julia Sucasaca
