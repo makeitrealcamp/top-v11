@@ -1,28 +1,32 @@
 # Programa Top v11 -  Tiempo Parcial
 
+## Encuentros
+Principales: L-M-V
+Adicionales: M-J
+
 ## Mentores 👩🏻‍🏫👨🏼‍🏫
 - [Pablo Velasquez](profiles/pablo-velasquez.md)
 - Sara Del Valle Restrepo
 - Kelly Correa
 
 ## Estudiantes 👩🏻‍💻🧑🏼‍💻
-- Maray Montes De Oca
-- Giantory Espino
-- Carlos Sucre
-- Jhon García
-- Julia Sucasaca
-- Pedro Morante
-- Fernando Rodriguez
-- Carlos Reinoso
-- Alfredo Portocarrero
-- Juan Buitragǒ
-- Giovanni García
-- Piero Loza
-- Nedes Vera
-- Maritza Flor Salas
-- Johann Gonzales
-- Kerwin Sandoval
-- Rody Castillo
+1. Maray Montes De Oca
+2. Giantory Espino
+3. Carlos Sucre
+4. Jhon García
+5. Julia Sucasaca
+6. Pedro Morante
+7. Fernando Rodriguez
+8. Carlos Reinoso
+9. Alfredo Portocarrero
+10. Juan Buitragǒ
+11. Giovanni García
+12. Piero Loza
+13. Nedes Vera
+14. Maritza Flor Salas
+15. Johann Gonzales
+16. Kerwin Sandoval
+17. Rody Castillo
 
 ## Entregables proyecto grupal 💻🤝
 
