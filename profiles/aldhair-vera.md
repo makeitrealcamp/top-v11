@@ -21,7 +21,7 @@ He estado trabajando en videojuegos por 4 años, haciendo juegos móviles, web, 
 
 
 ## Social Media
-- [LinkTree]https://linktr.ee/aldhairvera
+- [LinkTree](https://linktr.ee/aldhairvera)
 
 ## Experience
 I've worked in some game studios from 2018 until now.
