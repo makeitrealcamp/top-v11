@@ -10,11 +10,9 @@ Me gusta leer comics ,escuchar musicas y danzar
 
 ## Social Media
 
-- [Github](https://github.com/makeitrealcamp/)
-- [Linkedin](https://www.linkedin.com/company/make-it-real-camp/)
+- [Github](https://github.com/MariT29fsh)
 
 ## Experience
-> __DELETE ME__ En una escala de 1 a 5 como te sientes tecnicamente en esto temas:  ⭐️⭐️⭐️⭐️⭐️ 
 
 - Programming : ⭐️⭐️⭐️
 - Javascript: ⭐️⭐️
