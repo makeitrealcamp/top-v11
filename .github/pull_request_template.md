@@ -4,9 +4,9 @@
 
 ### Feeling
 [//]: <> (Como te sientes con este PR? la solucion que entregas como te hace sentir?)
-- [ ] 🤙 Quick Fix
+- [] 🤙 Quick Fix
 - [ ] 👌 Implented, Tested and Done
-- [ ] 🤞 I really hope this works, please review it
+- [x] 🤞 I really hope this works, please review it
 
 ### Ticket (Issue Tracking)
 [//]: <> (El numero del ticket asociado a este PR)
