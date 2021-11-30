@@ -9,6 +9,10 @@ Adicionales: M-J
 - Sara Del Valle Restrepo
 - Kelly Correa
 
+## Workshops
+
+[Workshops](workshops/workshops.md)
+
 ## Estudiantes 👩🏻‍💻🧑🏼‍💻
 1. Maray Montes De Oca
 2. Giantory Espino
