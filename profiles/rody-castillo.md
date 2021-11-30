@@ -15,4 +15,4 @@ Soy un estudiante de Make It Real, y me gustaría desarollar apps con diferentes
 - Javascript: ⭐️⭐️⭐️
 - CSS: ⭐️⭐️⭐️
 - HTML: ⭐️⭐️⭐️
-- Git: ⭐️⭐️⭐️
+- Git: ⭐️⭐️
