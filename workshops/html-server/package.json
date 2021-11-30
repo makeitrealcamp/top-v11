@@ -1,0 +1,13 @@
+{
+  "name": "html-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "static-server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node static-server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

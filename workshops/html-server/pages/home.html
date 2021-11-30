@@ -1,0 +1,71 @@
+<html>
+  <head>
+  <title>Home Page Topv11</title>
+  <style>
+    html, body {
+      padding: 0;
+    }
+    nav {
+      
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background-color: #ccc;
+    }
+    li {
+      display: inline-block;
+      border-right: 2px solid #333;
+      padding: 15px 20px;
+    }
+    li:last-child {
+      border-right: none;
+    }
+    li a {
+      text-decoration: none;
+      color: #222;
+      padding: 15px 20px;
+    }
+    li a:hover {
+      background-color: #555;
+    }
+    h1 {
+      color: orange;
+    }
+  </style>
+  </head>
+  <body>
+  <nav id="navbar">
+  </nav>
+  <h1>Top V11</h1>
+  <script>
+    // console.log(document);
+    const routes = [
+      { name: 'About', url: '/about' },
+      { name: 'Blog', url: '/blog' },
+      { name: 'Os Info', url: '/osinfo' },
+      { name: 'Contact', url: '/contact' },
+    ];
+    // console.log(routes);
+    let navbar = document.getElementById('navbar');
+    let navul = document.createElement('ul');
+    navul.classList.add('navbar-list');
+    document.getElementById('navbar').appendChild(navul);
+    for(let i = 0; i < routes.length; i++) {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href=${routes[i].url}>${routes[i].name}</a>`;
+      navul.appendChild(li);
+    }
+    let btn = document.createElement('button');
+    btn.textContent = 'Click Me!';
+    let count = 0;
+    btn.addEventListener('click', function() {
+      count++;
+      console.log(`button clicked! ${count}`);
+    });
+    document.body.appendChild(btn);
+  </script>
+  </body>
+  </html>

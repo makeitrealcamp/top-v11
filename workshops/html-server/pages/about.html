@@ -1,0 +1,37 @@
+<html>
+  <head>
+  <title>About Page</title>
+  <style>
+    h1 {
+      color: red;
+    }
+    .social-media {
+      color: blue;
+    }
+  </style>
+  </head>
+  <body>
+  <h1>About Top V11</h1>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+  </p>
+  <h2 id='social-media'>Social Media</h2>
+  <ul id='social-media-list'>
+    <li>
+      <a href='https://github.com/makeitrealcamp/'>Github</a>
+    </li>
+    <li>
+      <a href='https://www.linkedin.com/company/make-it-real-camp/'>LinkedIn</a>
+    </li>
+  </ul>
+  <script type='text/javascript'>
+    console.log(document);
+    console.log('Before changing color', Date.now());
+    document.getElementById('social-media').classList.add('social-media');
+    console.log('After changing color', Date.now());
+    const socialLinks = ['https://github.com/makeitrealcamp/', 'https://www.linkedin.com/company/make-it-real-camp/'];
+    let linlItem1 = document.createElement('li')
+    document.getElementById('social-media-list').appendChild(linlItem1);
+  </script>
+  </body>
+  </html>
