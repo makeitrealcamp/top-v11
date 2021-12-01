@@ -6,7 +6,7 @@ Hi, I'm Carlos Sucre, ABAP developer.
 
 -   I am constantly improving my skills to build quality software.
 -   I prefer novelty, imaginative ideas, and work that involves change and variety.
--   I like to explore new technologies and develop software solutions and quick hacks.
+-   I like to explore new technologies and develop software.
 
 
 ## Social Media
@@ -17,7 +17,7 @@ Hi, I'm Carlos Sucre, ABAP developer.
 ## Experience
 
 - Programming : ⭐️⭐️⭐️⭐️
-- Javascript: ⭐️⭐️⭐️⭐️
-- CSS: ⭐️⭐️⭐️⭐️
-- HTML: ⭐️⭐️⭐️⭐️
-- Git: ⭐️⭐️⭐️⭐️
+- Javascript: ⭐️⭐️⭐️
+- CSS: ⭐️⭐️⭐️
+- HTML: ⭐️⭐️⭐️
+- Git: ⭐️⭐️
