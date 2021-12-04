@@ -15,6 +15,6 @@ Mi nombre es Pedro Jose Morante Vasquez y tengo 39 años de edad. Soy Ingeniero 
 
 - Programming : ⭐️⭐️
 - Javascript: ⭐️⭐️
-- CSS: ⭐️⭐️
+- CSS: ⭐️
 - HTML: ⭐️⭐️
 - Git: ⭐️⭐️
