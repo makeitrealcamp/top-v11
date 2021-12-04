@@ -1,0 +1,69 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  border: 1px solid 7px;
+  margin-right: 20px;
+}
+
+#company-name {
+  font-weight: 700;
+}
+
+.flex {
+  flex: 1;
+}
+
+nav {
+}
+
+.navbar ul {
+  display: flex;
+  margin: 0;
+  justify-content: space-evenly;
+}
+
+li {
+  list-style-type: none;
+  padding: 12px;
+}
+
+main {
+  outline: 1px dashed orange;
+  background-color: #aaa;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.box {
+  background-color: lightcoral;
+  margin: 10px;
+  padding: 10px;
+  width: 90%;
+  border: 1px solid coral;
+}
+
+footer {
+  border: 1px solid outline;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
