@@ -1,5 +1,10 @@
 # React
 
+* Compositional model
+* Declarative nature
+* Data flow - Component
+* Is just Js
+
 ## Add React to a Website
 
 Assuming we have a basic website like this:
@@ -124,6 +129,12 @@ You can check your global packages running:
 npm list -g
 ```
 
+from here, we can create our project:
+
+```sh
+npx create-react-app my-app
+```
+
 ## JSX
 
 We can use `JSX` that let's write JS code that looks more like HTML, and improves the way we create React elements.
@@ -183,6 +194,28 @@ ReactDOM.render(
 );
 ```
 
+Composition is not a concept only related React, in general we can see something like this:
+
+```js
+function getProfileUrl (username) {
+  return 'https://github.com' + username;
+}
+
+function getProfilePhoto (username) {
+  return 'https://github.com' + username + '.png?size=200';
+}
+
+function getProfileData (username) {
+  return {
+    photo: getProfilePhoto(username),
+    url: getProfileUrl(username)
+  }
+}
+```
+
+> Composition: _to combine simple functions to build more complicated ones_
+
+We can use composition to take advantage of the React components as well.
 
 
 
