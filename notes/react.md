@@ -136,6 +136,24 @@ const element = <h1>Hello, world</h1>
 
 React elements are what components are "made of". Components represent the modularity and reusability of React. These are something like factories that produce instances of components and they should follow the single responsability principle and just do one thing.
 
+A class component can be as simple as:
+
+```js
+class App extends React.Component {
+  render() {
+    return <h1>Hello, world</h1>
+  }
+}
+```
+
+And we can use this `App` component in the following way with `ReactDOM`:
+
+```js
+ReactDOM.render(
+  <App />, 
+  document.getElementById('root')
+);
+```
 
 
 
