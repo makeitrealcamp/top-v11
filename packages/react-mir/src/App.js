@@ -1,27 +1,11 @@
 import React from 'react';
+// Components
+import Header from './Header';
+import Footer from './Footer';
 
 class Clock extends React.Component {
   render() {
     return <span>{this.props.currentTime}</span>;
-  }
-}
-
-class Navbar extends React.Component {
-  render() {
-    const routes = this.props.routes;
-    return (
-      <nav className='navbar'>
-        <ul>
-          { routes.map((route) => (
-            <li key={route.id}>
-              <a href={route.url}>
-                {route.name}
-              </a>
-            </li>
-          )) }
-        </ul>
-      </nav>
-    );
   }
 }
 
@@ -68,11 +52,7 @@ class App extends React.Component {
 
     return (
       <div className='App'>
-        <header>
-          <span id='company-name'>Make It Real</span>
-          <span className='flex'></span>
-          <Navbar routes={routes} />
-        </header>
+        <Header routes={routes} />
         <main>
           <h1>Make it Real!</h1>
           <section className='clocks'>
@@ -89,9 +69,7 @@ class App extends React.Component {
             <ContactList contacts={students} title={'Student List'} />
           </section>
         </main>
-        <footer>
-          <span>Footer</span>
-        </footer>
+        <Footer />
       </div>
     );
   }
