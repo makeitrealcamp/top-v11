@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
 
 html, body {
   margin: 0;
@@ -93,6 +94,65 @@ main {
 section.clocks {
   display: flex;
   justify-content: space-around;
+}
+
+section.clocks .clock {
+  outline: 1px dashed fuchsia;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 14px;
+}
+
+section.counters {
+  font-family: 'Major Mono Display'; 
+  display: flex;
+  justify-content: space-around;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #ff6b6b;
+  margin: 10px;
+  padding: 10px;
+}
+
+.counter .title {
+  text-align: center;
+  font-weight: bold;
+  color: #4e929d;
+  font-size: 18px;
+  margin: 0;
+}
+
+.counter #value {
+  margin: 10px;
+  font-weight: bold;
+  color: #ff6b6b;
+  font-size: 36px;
+}
+
+.counter .button-container .btn {
+  padding: 4px;
+  border: none;
+  margin:2px;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 40px;
+  border-radius: 4px;
+  background-color: #1a535c;
+  color: #f7fff7;
+}
+
+.counter .button-container #reset {
+  background-color: #ff6b6b;
 }
 
 section.box {

@@ -3,17 +3,50 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    // initialize state
+    this.state = {
+      count: 0,
+    };
+  }
+
+  // update state
+  handleClick = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
+  render() {
+    return (
+      <div className='counter'>
+        <h3 className='title'>counter</h3>
+        <span id='value'>{this.state.count}</span>
+        <div className='button-container'>
+          <button className='btn' onClick={this.handleClick}>+</button>
+          <button className='btn' id='reset'>Reset</button>
+          <button className='btn'>-</button>
+        </div>
+      </div>
+    );
+  }
+}
+
 class Clock extends React.Component {
   render() {
-    return <span>{this.props.currentTime}</span>;
+    return (
+      <div className='clock'>
+        <p>{this.props.currentTime}</p>
+      </div>
+    );
   }
 }
 
 class ContactList extends React.Component {
   render() {
-    // console.log('Props:', this.props);
     const contacts = this.props.contacts;
-
     return (
       <div>
         <h3>{this.props.title}</h3>
@@ -56,9 +89,12 @@ class App extends React.Component {
         <main>
           <h1>Make it Real!</h1>
           <section className='clocks'>
-            <Clock currentTime={ '8:14PM' } />
-            <Clock currentTime={ '10:14PM' } />
-            <Clock currentTime={ '05:14PM' } />
+            <Clock currentTime={'8:08PM'} />
+          </section>
+          <section className='counters'>
+            <Counter />
+            <Counter />
+            <Counter />
           </section>
           <section className='box'>
             <h2>Mentors</h2>
