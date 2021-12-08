@@ -6,8 +6,8 @@ class Navbar extends React.Component {
     return (
       <nav className='navbar'>
         <ul>
-          { routes.map((route) => (
-            <li key={route.id}>
+          { routes.map((route, index) => (
+            <li key={index}>
               <a href={route.url}>
                 {route.name}
               </a>

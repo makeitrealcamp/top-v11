@@ -32,10 +32,10 @@ class ContactList extends React.Component {
 class App extends React.Component {
   render() {
     const routes = [
-      { id: 1, name: 'Home', url: '/' },
-      { id: 2, name: 'Team', url: '/team' },
-      { id: 3, name: 'Features', url: '/features' },
-      { id: 4, name: 'Contact', url: '/contact' }
+      { name: 'Home', url: '/' },
+      { name: 'Team', url: '/team' },
+      { name: 'Features', url: '/features' },
+      { name: 'Contact', url: '/contact' }
     ];
 
     const mentors = [
