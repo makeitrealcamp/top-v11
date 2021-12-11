@@ -1,38 +1,8 @@
 import React from 'react';
 // Components
 import Header from './Header';
+import Counter from './Counter';
 import Footer from './Footer';
-
-class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    // initialize state
-    this.state = {
-      count: 0,
-    };
-  }
-
-  // update state
-  handleClick = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
-
-  render() {
-    return (
-      <div className='counter'>
-        <h3 className='title'>counter</h3>
-        <span id='value'>{this.state.count}</span>
-        <div className='button-container'>
-          <button className='btn' onClick={this.handleClick}>+</button>
-          <button className='btn' id='reset'>Reset</button>
-          <button className='btn'>-</button>
-        </div>
-      </div>
-    );
-  }
-}
 
 class Clock extends React.Component {
   render() {
@@ -92,9 +62,9 @@ class App extends React.Component {
             <Clock currentTime={'8:08PM'} />
           </section>
           <section className='counters'>
-            <Counter />
-            <Counter />
-            <Counter />
+            <Counter name={'1'} />
+            <Counter name={'2'} />
+            <Counter name={'3'} />
           </section>
           <section className='box'>
             <h2>Mentors</h2>
