@@ -1,18 +1,9 @@
 import React from 'react';
 // Components
 import Header from './Header';
+import Clock from './Clock';
 import Counter from './Counter';
 import Footer from './Footer';
-
-class Clock extends React.Component {
-  render() {
-    return (
-      <div className='clock'>
-        <p>{this.props.currentTime}</p>
-      </div>
-    );
-  }
-}
 
 class ContactList extends React.Component {
   render() {
