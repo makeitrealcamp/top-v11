@@ -50,7 +50,7 @@ class App extends React.Component {
         <main>
           <h1>Make it Real!</h1>
           <section className='clocks'>
-            <Clock currentTime={'8:08PM'} />
+            <Clock />
           </section>
           <section className='counters'>
             <Counter name={'1'} />
