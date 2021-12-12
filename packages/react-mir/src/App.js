@@ -42,11 +42,11 @@ class App extends React.Component {
           </section>
           <section className='box'>
             <h2>Mentors</h2>
-            <ContactList contacts={mentors} title={'Mentor List'} />
+            <ContactList contacts={mentors} title={'MIR Mentors'} />
           </section>
           <section className='box'>
             <h2>Students</h2>
-            <ContactList contacts={students} title={'Student List'} />
+            <ContactList contacts={students} title={'MIR Students'} />
           </section>
         </main>
         <Footer />
