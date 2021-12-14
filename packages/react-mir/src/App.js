@@ -2,9 +2,12 @@ import React from 'react';
 // Components
 import Header from './Header';
 import Clock from './Clock';
-import Counter from './Counter';
+import 
+Counter from './Counter';
 import ContactList from './ContactList';
 import Footer from './Footer';
+// Dummy Data
+import mentors from './mentors';
 
 class App extends React.Component {
   render() {
@@ -15,12 +18,6 @@ class App extends React.Component {
       { name: 'Contact', url: '/contact' }
     ];
 
-    const mentors = [
-      { id: 1, name: 'Pablo Velasquez' },
-      { id: 2, name: 'Sara Del Valle Restrepo' },
-      { id: 3, name: 'Kelly Correa' },
-    ];
-
     const students = [
       { id: 4, name: 'Maray Montes De Oca' },
       { id: 5, name: 'Giantory Espino' },
@@ -29,7 +26,7 @@ class App extends React.Component {
 
     return (
       <div className='App'>
-        <Header routes={routes} />
+        <Header company='Make It Real' routes={routes} />
         <main>
           <h1>Make it Real!</h1>
           <section className='clocks'>
