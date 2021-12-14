@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Navbar from "./Navbar";
 
-function Header({ company, routes }) {
+const Header = ({ company, routes }) => {
   return (
     <header>
       <span id="company-name">{company}</span>
@@ -13,7 +13,7 @@ function Header({ company, routes }) {
 }
 
 Header.propTypes = {
-  company: PropTypes.object,
+  company: PropTypes.string,
   routes: PropTypes.array.isRequired
 }
 
