@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-function Header(props) {
+function Header({ company = 'Company', routes = [] }) {
   return (
     <header>
-      <span id="company-name">Make It Real</span>
+      <span id="company-name">{company}</span>
       <span className="flex"></span>
-      <Navbar routes={props.routes} />
+      <Navbar routes={routes} />
     </header>
   );
 }
