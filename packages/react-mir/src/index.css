@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 
 html, body {
   margin: 0;
@@ -83,7 +90,7 @@ header #company-name {
 main {
   color: #f6f4e6;
   background-color: #aaa;
-  background-image: url('http://localhost:3000/y-so-serious.png');
+  background-image: url('http://localhost:3001/y-so-serious.png');
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -156,11 +163,94 @@ section.counters {
 }
 
 section.box {
-  background-color: lightcoral;
+  background-color: #8e44ad;
   margin: 10px;
-  padding: 10px;
+  padding: 30px;
   width: 90%;
   border: 1px solid coral;
+}
+
+section.box .mentors-container {
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+section.box .mentors-container .profile-card {
+  width: calc(33% - 10px);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 5px;
+}
+
+section.box .mentors-container .profile-card .image {
+  margin: 10px 0;
+  height: 150px;
+  width: 150px;
+  background: #8e44ad;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+section.box .mentors-container .profile-card .image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+section.box .mentors-container .profile-card p {
+  text-align: justify;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+section.box .mentors-container .profile-card .name {
+  margin: 10px 0 3px 0;
+  color: #8e44ad;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+section.box .mentors-container .profile-card .btn-row {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+section.box .mentors-container .profile-card .btn-row button {
+  background: #8e44ad;
+  width: 100%;
+  padding: 9px 0px;
+  outline: none;
+  border: 2px solid #8e44ad;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  color: #8e44ad;
+}
+
+section.box .mentors-container .profile-card .btn-row button {
+  color: #fff;
+  background: #8e44ad;
+  width: 48%;
 }
 
 footer {

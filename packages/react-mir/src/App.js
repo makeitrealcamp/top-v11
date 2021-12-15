@@ -5,6 +5,7 @@ import Clock from './Clock';
 import 
 Counter from './Counter';
 import ContactList from './ContactList';
+import ProfileCard from './ProfileCard';
 import Footer from './Footer';
 // Dummy Data
 import mentors from './mentors';
@@ -39,6 +40,11 @@ class App extends React.Component {
           </section>
           <section className='box'>
             <h2>Mentors</h2>
+            <div className='mentors-container'>
+              <ProfileCard />
+              <ProfileCard />
+              <ProfileCard />
+            </div>
             <ContactList contacts={mentors} title={'MIR Mentors'} />
           </section>
           <section className='box'>
