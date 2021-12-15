@@ -41,9 +41,9 @@ class App extends React.Component {
           <section className='box'>
             <h2>Mentors</h2>
             <div className='mentors-container'>
-              <ProfileCard />
-              <ProfileCard />
-              <ProfileCard />
+              { mentors.map((mentor) => (
+                <ProfileCard key={mentor.id} mentor={mentor} />
+              )) }
             </div>
             <ContactList contacts={mentors} title={'MIR Mentors'} />
           </section>
