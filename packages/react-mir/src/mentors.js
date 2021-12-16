@@ -27,6 +27,7 @@ const mentors = [
     id: 2,
     name: 'Sara del Valle Restrepo',
     photo: '',
+    summary: 'Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.',
     description: 'Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.',
     skills: {
       programming: 5,
@@ -46,6 +47,7 @@ const mentors = [
     id: 3,
     name: 'Kelly Correa',
     photo: '',
+    summary: 'Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.',
     description: 'Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.',
     skills: {
       programming: 5,
