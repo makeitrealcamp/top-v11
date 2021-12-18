@@ -11,6 +11,25 @@ import Footer from './Footer';
 import mentors from './mentors';
 
 class App extends React.Component {
+  state = {
+    featured: '',
+    mentors: mentors
+  };
+
+  featureProfile = (name) => {
+    this.setState({
+      featured: name
+    });
+  }
+
+  deleteProfile = (profile) => {
+    this.setState((prevState) => ({
+      mentors: prevState.mentors.filter((p) => {
+        return p.id !== profile.id;
+      })
+    }));
+  }
+
   render() {
     const routes = [
       { name: 'Home', url: '/' },
@@ -40,9 +59,12 @@ class App extends React.Component {
           </section>
           <section className='box'>
             <h2>Mentors</h2>
-            <h3>Featured Mentor: Sara del Valle</h3>
+            <h3>Featured Mentor: {this.state.featured}</h3>
             <div className='mentors-container'>
-              <MentorList mentors={mentors}/>
+              <MentorList 
+                mentors={this.state.mentors}
+                onFeatureProfile={this.featureProfile}
+                onDeleteProfile={this.deleteProfile}/>
             </div>
           </section>
           <section className='box'>

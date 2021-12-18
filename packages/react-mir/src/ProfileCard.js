@@ -5,8 +5,7 @@ class ProfileCard extends React.Component {
     super(props);
     this.state = {
       showDescription: false,
-      showSocial: false,
-      featured: ''
+      showSocial: false
     };
   }
 
@@ -22,15 +21,9 @@ class ProfileCard extends React.Component {
     }));
   };
 
-  featureProfile = (e) => {
-    console.log(e);
-    this.setState({
-      featured: ''
-    });
-  }
-
   render() {
     const { name, photo, summary, description, social } = this.props.mentor;
+    const { onFeatureProfile, onDeleteProfile } = this.props;
     const renderContactButton = () => {
       if (social.length > 0) {
         return <button onClick={this.toggleSocial}>Contact</button>
@@ -52,7 +45,8 @@ class ProfileCard extends React.Component {
           </button>
           { renderContactButton() }
         </div>
-        <button onClick={(e) => this.featureProfile(e) }>Feature this Mentor!</button>
+        <button onClick={() => onFeatureProfile(name)}>Feature this Mentor!</button>
+        <button onClick={() => onDeleteProfile(this.props.mentor)}>You are Fired!</button>
       </div>
     );
   }
