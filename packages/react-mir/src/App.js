@@ -1,11 +1,9 @@
 import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 // Components
 import Header from './Header';
-import Clock from './Clock';
-import 
-Counter from './Counter';
-import ContactList from './ContactList';
-import MentorList from './MentorList';
+import Home from './Home';
+import Team from './Team';
 import Footer from './Footer';
 // Dummy Data
 import mentors from './mentors';
@@ -47,31 +45,22 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Header company='Make It Real' routes={routes} />
-        <main>
-          <h1>Make it Real!</h1>
-          <section className='clocks'>
-            <Clock />
-          </section>
-          <section className='counters'>
-            <Counter name={'1'} />
-            <Counter name={'2'} />
-            <Counter name={'3'} />
-          </section>
-          <section className='box'>
-            <h2>Mentors</h2>
-            <h3>Featured Mentor: {this.state.featured}</h3>
-            <div className='mentors-container'>
-              <MentorList 
-                mentors={this.state.mentors}
-                onFeatureProfile={this.featureProfile}
-                onDeleteProfile={this.deleteProfile}/>
-            </div>
-          </section>
-          <section className='box'>
-            <h2>Students</h2>
-            <ContactList contacts={students} title={'MIR Students'} />
-          </section>
-        </main>
+        <hr></hr>
+        <h2>Links:</h2>
+        <Link to='/'>Go Home</Link>
+        <Link to='team'>Go Team</Link>
+        <hr></hr>
+        <Routes>
+          <Route path='/' element={ <Home /> } />
+          <Route path='team' element={ <Team /> }/>
+          <Route 
+            path='*'
+            element={
+              <main>
+                <h2>We weren't able to find what you were looking for</h2>
+              </main>
+            }/>
+        </Routes>
         <Footer />
       </div>
     );
