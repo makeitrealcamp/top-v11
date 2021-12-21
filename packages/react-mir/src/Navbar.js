@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
   render() {
@@ -8,9 +9,7 @@ class Navbar extends React.Component {
         <ul>
           { routes.map((route, index) => (
             <li key={index}>
-              <a href={route.url}>
-                {route.name}
-              </a>
+              <Link to={route.url}>{route.name}</Link>
             </li>
           )) }
         </ul>
