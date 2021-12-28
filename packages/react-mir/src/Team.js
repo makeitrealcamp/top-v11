@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Group from './Group';
+import GroupInput from './GroupInput';
 import ContactList from './ContactList';
 import MentorList from './MentorList';
 // Dummy Data
@@ -35,7 +36,8 @@ class Team extends Component {
     return (
       <main>
         <h1>Make it Real! Team</h1>
-        <Group />
+        {/* <Group /> */}
+        <GroupInput />
         <section className="box">
           <h2>Mentors</h2>
           <h3>Featured Mentor: {this.state.featured}</h3>
