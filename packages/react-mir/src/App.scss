@@ -1,0 +1,223 @@
+@import 'colors';
+
+$fontsize: 18px;
+$default-margin: 10px;
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+
+header {
+  background: #272727;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  #company-name {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: #f6f4e6;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+  }
+}
+
+.logo {
+  margin-right: 20px;
+}
+
+.flex {
+  flex: 1;
+}
+
+.navbar {
+  ul {
+    display: flex;
+    margin: 0;
+    justify-content: space-evenly;
+    li {
+      list-style-type: none;
+      padding: 12px;
+      a {
+        color: #f6f4e6;
+        text-decoration: none;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: inline-block;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          color: $navbar-accent-color;
+        }
+      }
+    }
+  }
+}
+
+main {
+  color: #f6f4e6;
+  background-color: #aaa;
+  background-image: url('http://localhost:3000/y-so-serious.png');
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.clocks {
+  display: flex;
+  justify-content: space-around;
+  .clock {
+    outline: 1px dashed fuchsia;
+    background: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: $default-margin;
+    padding: 14px;
+  }
+}
+
+section.counters {
+  font-family: 'Major Mono Display'; 
+  display: flex;
+  justify-content: space-around;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #ff6b6b;
+  margin: $default-margin;
+  padding: 10px;
+  .title {
+    text-align: center;
+    font-weight: bold;
+    color: #4e929d;
+    font-size: $fontsize;
+    margin: 0;
+  }
+  #value {
+    margin: $default-margin;
+    font-weight: bold;
+    color: #ff6b6b;
+    font-size: 36px;
+  }
+  .button-container {
+    .btn {
+      padding: 4px;
+      border: none;
+      margin:2px;
+      font-size: 12px;
+      font-weight: bold;
+      min-width: 40px;
+      border-radius: 4px;
+      background-color: #1a535c;
+      color: #f7fff7;
+    }
+    #reset {
+      background-color: #ff6b6b;
+    }
+  } 
+}
+
+section.box {
+  background-color: #8e44ad;
+  margin: $default-margin;
+  padding: 30px;
+  width: 90%;
+  border: 1px solid coral;
+}
+
+section.box .mentors-container {
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  margin: 0px;
+  margin-top: $default-margin * 2;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+section.box .mentors-container .profile-card {
+  width: calc(33% - 10px);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 5px;
+  .image {
+    margin: $default-margin 0;
+    height: 150px;
+    width: 150px;
+    background: $profile-card-primary-color;
+    padding: 3px;
+    border-radius: 50%;
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+    }
+  }
+  p {
+    text-align: justify;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .name {
+    margin: $default-margin 0 3px 0;
+    color: $profile-card-primary-color;
+    font-size: $fontsize;
+    font-weight: 600;
+  }
+  .btn-row {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    button {
+      background: $profile-card-primary-color;
+      width: 100%;
+      padding: 9px 0px;
+      outline: none;
+      border: 2px solid $profile-card-primary-color;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: $fontsize;
+      font-weight: 400;
+      color: $profile-card-primary-color;
+      color: #fff;
+      background: $profile-card-primary-color;
+      width: 48%;
+    }
+  }
+}
+
+footer {
+  background: #272727;
+  color: #f6f4e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
