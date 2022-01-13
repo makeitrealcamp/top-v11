@@ -26,9 +26,9 @@ const mentors = [
   {
     id: 2,
     name: 'Sara del Valle Restrepo',
-    photo: '',
+    photo: 'https://avatars.githubusercontent.com/u/75816184?v=4',
     summary: 'Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.',
-    description: 'Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.',
+    description: 'Full Stack developer with 3 years of experience in different technologies such as JavaScript, PHP, Python, React, NodeJs, HTML, CSS, MySQL, MariaDB and MongoDB. Currently working as Web UI React Developer in Globant.',
     skills: {
       programming: 5,
       javascript: 5,
@@ -39,7 +39,11 @@ const mentors = [
     social: [
       {
         name: 'Github',
-        url: 'https://github.com/sara/'
+        url: 'https://github.com/saradvr'
+      },
+      {
+        name: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/saradelvallerestrepo/'
       }
     ]
   },
