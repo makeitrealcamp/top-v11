@@ -5,6 +5,7 @@ import Header from './Header';
 import Home from './Home';
 import Team from './Team';
 import Footer from './Footer';
+import './App.scss';
 
 class App extends React.Component {
   render() {
