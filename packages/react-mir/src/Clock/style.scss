@@ -1,0 +1,15 @@
+@import '../colors';
+@import '../variables';
+
+.clock {
+  outline: 1px dashed $primary-color;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: $default-margin;
+  padding: 14px;
+  border: 5px solid $primary-color;
+}

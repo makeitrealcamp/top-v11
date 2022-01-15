@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.scss';
 
 class Clock extends React.Component {
   // initialize state, this means state is class field since it's not in constructor

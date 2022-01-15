@@ -1,5 +1,5 @@
 import React from "react";
-import ImageToggleOnMouseOver from './ImageToggleOnMouseOver';
+import ImageToggleOnMouseOver from '../ImageToggleOnMouseOver/';
 
 class ProfileCard extends React.Component {
   constructor(props) {

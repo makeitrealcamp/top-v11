@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 // Components
-import Header from './Header';
-import Home from './Home';
-import Team from './Team';
-import Footer from './Footer';
+import Header from './Header/';
+import Home from './Home/';
+import Team from './Team/';
+import Footer from './Footer/';
 import './App.scss';
 
 class App extends React.Component {

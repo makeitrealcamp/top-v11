@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Clock from './Clock';
-import Counter from './Counter';
+import Clock from '../Clock/';
+import Counter from '../Counter/';
 
 class Home extends Component {
   render() {

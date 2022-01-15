@@ -1,17 +1,32 @@
 import React, { Component } from "react";
-// import Group from './Group';
-// import GroupInput from './GroupInput';
-import TextInputWithFocusButton from './TextInputWithFocusButton';
-import ContactList from './ContactList';
-import MentorList from './MentorList';
-// Dummy Data
-import mentors from './mentors';
+import TextInputWithFocusButton from '../TextInputWithFocusButton/';
+import ContactList from '../ContactList/';
+import MentorList from '../MentorList/';
 
 class Team extends Component {
   state = {
     featured: '',
-    mentors: mentors
+    mentors: [],
+    students: []
   };
+
+  componentDidMount() {
+    this.getMentors();
+    this.getStudents();
+  }
+
+  getMentors() {
+    const url = 'http://localhost:3000/mentors.json';
+    fetch(url)
+      .then(response => response.json())
+      .then(data => this.setState({ mentors: data }));
+  }
+
+  getStudents() {
+    fetch('http://hp-api.herokuapp.com/api/characters/students')
+      .then(response => response.json())
+      .then(data => this.setState({ students: data }));
+  }
 
   featureProfile = (name) => {
     this.setState({
@@ -28,17 +43,9 @@ class Team extends Component {
   }
 
   render() {
-    const students = [
-      { id: 4, name: 'Maray Montes De Oca' },
-      { id: 5, name: 'Giantory Espino' },
-      { id: 6, name: 'Carlos Sucre' },
-    ];
-
     return (
       <main>
         <h1>Make it Real! Team</h1>
-        {/* <Group /> */}
-        {/* <GroupInput /> */}
         <TextInputWithFocusButton />
         <section className="box">
           <h2>Mentors</h2>
@@ -53,7 +60,7 @@ class Team extends Component {
         </section>
         <section className="box">
           <h2>Students</h2>
-          <ContactList contacts={students} title='MIR Students' />
+          <ContactList contacts={this.state.students} title='MIR Students' />
         </section>
       </main>
     );

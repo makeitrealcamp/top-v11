@@ -1,7 +1,5 @@
 @import 'colors';
-
-$fontsize: 18px;
-$default-margin: 10px;
+@import 'variables';
 
 .App {
   display: flex;
@@ -72,17 +70,6 @@ main {
 section.clocks {
   display: flex;
   justify-content: space-around;
-  .clock {
-    outline: 1px dashed fuchsia;
-    background: white;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: $default-margin;
-    padding: 14px;
-  }
 }
 
 section.counters {

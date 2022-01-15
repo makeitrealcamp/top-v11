@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ProfileCard from "./ProfileCard";
+import ProfileCard from "../ProfileCard/";
 
 class MentorList extends Component {
   render() {
