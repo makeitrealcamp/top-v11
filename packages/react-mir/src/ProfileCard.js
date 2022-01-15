@@ -1,4 +1,5 @@
 import React from "react";
+import ImageToggleOnMouseOver from './ImageToggleOnMouseOver';
 
 class ProfileCard extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class ProfileCard extends React.Component {
   };
 
   render() {
-    const { name, photo, summary, description, social } = this.props.mentor;
+    const { name, photo, avatar, summary, description, social } = this.props.mentor;
     const { onFeatureProfile, onDeleteProfile } = this.props;
     const renderContactButton = () => {
       if (social.length > 0) {
@@ -32,7 +33,9 @@ class ProfileCard extends React.Component {
     return (
       <div className="profile-card">
         <div className="image">
-          <img src={ photo !== '' ? photo : 'https://via.placeholder.com/400' } alt="" />
+          <ImageToggleOnMouseOver primaryImg={ photo !== '' ? photo : 'https://via.placeholder.com/400' }
+                                  secondaryImg={ avatar !== '' ? avatar : 'https://via.placeholder.com/400' }
+                                  alt='' />
         </div>
         <div className="name">{name}</div>
         <p>{summary}</p>
