@@ -16,10 +16,16 @@ class Team extends Component {
   }
 
   getMentors() {
-    const url = 'http://localhost:3000/mentors.json';
+    // const url = 'http://localhost:3000/mentors.json';
+    const url = 'https://raw.githubusercontent.com/makeitrealcamp/top-v11/develop/packages/react-mir/public/mentors.json';
     fetch(url)
       .then(response => response.json())
-      .then(data => this.setState({ mentors: data }));
+      .then(data => {
+        this.setState({ mentors: data })
+      })
+      .catch(error => {
+        console.log(error);
+      });;
   }
 
   getStudents() {
