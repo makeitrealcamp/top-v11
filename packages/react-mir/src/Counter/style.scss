@@ -1,0 +1,40 @@
+@import '../variables';
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #ff6b6b;
+  margin: $default-margin;
+  padding: 10px;
+  .title {
+    text-align: center;
+    font-weight: bold;
+    color: #4e929d;
+    font-size: $fontsize;
+    margin: 0;
+  }
+  #value {
+    margin: $default-margin;
+    font-weight: bold;
+    color: #ff6b6b;
+    font-size: 36px;
+  }
+  .button-container {
+    .btn {
+      padding: 4px;
+      border: none;
+      margin:2px;
+      font-size: 12px;
+      font-weight: bold;
+      min-width: 40px;
+      border-radius: 4px;
+      background-color: #1a535c;
+      color: #f7fff7;
+    }
+    #reset {
+      background-color: #ff6b6b;
+    }
+  } 
+}

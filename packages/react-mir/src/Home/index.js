@@ -12,8 +12,8 @@ class Home extends Component {
         </section>
         <section className="counters">
           <Counter name={"1"} />
-          <Counter name={"2"} />
-          <Counter name={"3"} />
+          {/* <Counter name={"2"} />
+          <Counter name={"3"} /> */}
         </section>
       </main>
     );
