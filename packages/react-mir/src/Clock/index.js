@@ -1,51 +1,42 @@
-import React from 'react';
-import './style.scss';
+import React, { useState, useEffect, useRef } from "react";
+import "./style.scss";
 
-class Clock extends React.Component {
-  // initialize state, this means state is class field since it's not in constructor
-  state = {
-    date: new Date().toLocaleTimeString()
+const Clock = () => {
+  const [time,setTime] = useState(new Date().toLocaleTimeString());
+  const savedCallback=useRef();
+  
+  useEffect(() => {
+    savedCallback.current= setInterval(() => tick(), 1000);
+
+    return function cleanup() {
+      clearInterval(savedCallback.current);
+    };
+  }, []);
+
+  const tick = () => {
+    setTime(new Date().toLocaleTimeString());
   };
 
-  // Component is rendered (mounted) to the DOM for the first time
-  componentDidMount() {
-    this.intervalId = setInterval(
-      () => this.tick(),
-      1000
-    )
-  }
-
-  // DOM produced by the component will be removed (unmounted)
-  componentWillUnmount() {
-    clearInterval(this.intervalId)
-  }
-
-  tick = () => {
-    this.setState({
-      time: new Date().toLocaleTimeString()
-    });
+  const stopInterval = () => {
+    clearInterval(savedCallback.current);
   };
 
-  stopInterval = () => {
-    clearInterval(this.intervalId)
+  const restartInterval = () => {
+    savedCallback.current = setInterval(() => tick(), 1000);
   };
 
-  restartInterval = () => {
-    this.intervalId = setInterval(
-      () => this.tick(),
-      1000
-    )
-  };
 
-  render() {
-    return (
-      <div className='clock'>
-        <p>{ this.state.time }</p>
-        <button className='btn' onClick={this.stopInterval}>STOP!</button>
-        <button className='btn' onClick={this.restartInterval}>MOVE!</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="clock">
+      <p>{time}</p>
+      <button className="btn" onClick={stopInterval}>
+        STOP!
+      </button>
+      <button className="btn" onClick={restartInterval}>
+        MOVE!
+      </button>
+    </div>
+  );
+};
 
 export default Clock;
