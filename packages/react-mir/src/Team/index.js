@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TextInputWithFocusButton from '../TextInputWithFocusButton/';
-import ContactList from '../ContactList/';
+import StudentList from '../StudentList/';
 import MentorList from '../MentorList/';
 
 const Team = () => {
@@ -49,7 +49,7 @@ const Team = () => {
       </section>
       <section className='box'>
         <h2>Students</h2>
-        <ContactList contacts={students} title='MIR Students' />
+        <StudentList students={students} title='MIR Students' />
       </section>
     </main>
   );

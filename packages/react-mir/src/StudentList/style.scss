@@ -1,0 +1,17 @@
+.student-list {
+  width: 100%;
+  .student-card {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    color: #8e44ad;
+    display: flex;
+    justify-content: space-between;
+    .student-picture {
+      outline: 1px solid red;
+    }
+    .student-info {
+      outline: 1px solid blue;
+    }
+  }
+}

@@ -7,6 +7,12 @@ class ContactList extends React.Component {
     return (
       <div className='contact-list'>
         <h3>{this.props.title}</h3>
+        {/* <div>
+          Image
+          name
+          skills
+          description
+        </div> */}
         <ol>
           {contacts.map((contact, i) => (
             <li key={contact.id || i}>
