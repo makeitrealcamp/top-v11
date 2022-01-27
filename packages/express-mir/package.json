@@ -9,6 +9,7 @@
   "author": "Pablovem <contact@pablovem.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "lowdb": "^1.0.0"
   }
 }
