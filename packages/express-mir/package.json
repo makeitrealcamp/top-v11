@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.2",
-    "lowdb": "^1.0.0"
+    "lowdb": "^1.0.0",
+    "nodemon": "^2.0.15"
   }
 }
