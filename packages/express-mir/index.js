@@ -18,12 +18,19 @@ const app = express();
 // Global Middlewares
 app.use(express.json());
 
-/** Endpoints */ 
+/** Endpoints (Routes) */ 
 // Resource: Students
 // GET: fetch students
 app.get('/api/students', (req, res) => {
   const students = db.get('students').value(); // query
   res.status(200).json({ success: true, data: students })
+});
+
+// GET: fetch an student by id
+app.get('/api/students/:id', (req, res) => {
+  const { id } = req.params;
+  const student = db.get('students').find({ _id: id }).value(); // query
+  res.status(200).json({ success: true, data: student })
 });
 
 // POST: create new student
