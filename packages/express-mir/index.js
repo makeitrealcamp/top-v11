@@ -64,6 +64,40 @@ app.post('/api/students', (req, res) => {
   }
 });
 
+// PATCH: update a student
+app.patch('/api/students/:id', (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  // validate body
+  const studentSchema = joi.object({
+    name: joi.string().min(3).max(45),
+    surname: joi.string().min(5).max(45),
+    phone: joi.string().length(9).pattern(/^[0-9]+$/),
+    age: joi.number()
+  });
+  const result = studentSchema.validate(body);
+  const { value, error } = result;
+  if (error == null) {
+    // validation success
+    const student =  db.get('students').find({ _id: id }).value(); // query
+    if (!student) {
+      res.status(404).json({ success: true, message: 'Student not found' });
+    } else {
+      const update = {
+        ...student,
+        ...body,
+        updatedAt: Date.now()
+      };
+      // update into database // mutation - write
+      db.get('students').find({ _id: id }).assign(update).write();
+      res.status(200).json({ success: true, message: 'Student has been updated', data: update });
+    }
+  } else {
+    // validation error
+    res.status(400).json({ success: false, message: 'Validation error', data: value, error: error.details })
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on ${PORT}`);
 });
