@@ -41,9 +41,24 @@ app.post('/api/students', (req, res) => {
   const studentSchema = joi.object({
     name: joi.string().min(3).max(45).required(),
     surname: joi.string().min(5).max(45).required(),
-    phone: joi.string().length(9).pattern(/^[0-9]+$/).required(),
+    phone: joi.string().min(9).max(10).pattern(/^[0-9]+$/).required(),
     email: joi.string().email().required(),
-    age: joi.number()
+    photo: joi.string().required(),
+    age: joi.number(),
+    avatar: joi.string(),
+    headline: joi.string().required(),
+    description: joi.string().min(20).max(300).required(),
+    skills: joi.object({
+      programming: joi.number(),
+      javascript: joi.number(),
+      css: joi.number(),
+      html: joi.number(),
+      git: joi.number()
+    }),
+    social: joi.array(),
+    metadata: joi.object({
+      starship: joi.string()
+    })
   });
   const result = studentSchema.validate(body);
   const { value, error } = result;
