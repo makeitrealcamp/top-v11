@@ -45,13 +45,13 @@ app.post('/api/students', (req, res) => {
   const studentSchema = joi.object({
     name: joi.string().min(3).max(45).required(),
     surname: joi.string().min(5).max(45).required(),
-    phone: joi.string().min(9).max(10).pattern(/^[0-9]+$/).required(),
     email: joi.string().email().required(),
-    photo: joi.string().required(),
-    age: joi.number(),
-    avatar: joi.string(),
-    headline: joi.string().required(),
     description: joi.string().min(20).max(300).required(),
+    headline: joi.string().required(),
+    photo: joi.string().required(),
+    avatar: joi.string(),
+    phone: joi.string().min(9).max(10).pattern(/^[0-9]+$/).required(),
+    age: joi.number(),
     skills: joi.object({
       programming: joi.number(),
       javascript: joi.number(),
