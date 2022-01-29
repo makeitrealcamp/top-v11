@@ -113,6 +113,19 @@ app.patch('/api/students/:id', (req, res) => {
   }
 });
 
+// DELETE:
+app.delete('/api/students/:id', (req, res) => {
+  const { id } = req.params;
+  const student =  db.get('students').find({ _id: id }).value(); // query
+    if (!student) {
+      res.status(404).json({ success: true, message: 'Student not found' });
+    } else {
+      // delete into database // mutation - write
+      db.get('students').remove({ _id: id }).write();
+      res.status(200).json({ success: true, message: 'Student has been deleted' });
+    }
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on ${PORT}`);
 });
