@@ -3,9 +3,10 @@ const lowdDB = require('lowdb');
 const FyleSync = require('lowdb/adapters/FileSync');
 const joi = require('joi');
 const { nanoid } = require('nanoid');
+const cors = require('cors');
 
 // Server Setup
-const PORT = 3000;
+const PORT = 3001;
 
 // Database Setup
 const adapter = new FyleSync('db.json');
@@ -17,6 +18,9 @@ const app = express();
 
 // Global Middlewares
 app.use(express.json());
+app.use(cors({
+  origin: '*'
+}));
 
 /** Endpoints (Routes) */ 
 // Resource: Students
