@@ -62,8 +62,12 @@ const Team = () => {
       <section className="box">
         <h2>Students</h2>
         <StudentForm />
-        {!isLoading && 
-        students > 0 ? (<h1>No Students registered</h1>) : (<StudentList students={students} title="MIR Students" />)}
+        {!isLoading &&
+          (students.length > 0 ? (
+            <StudentList students={students} title="MIR Students" />
+          ) : (
+            <h1>No Students registered</h1>
+          ))}
         {isLoading &&
           (error ? (
             <h1>Error: Failed to fetch data from server</h1>
@@ -76,4 +80,3 @@ const Team = () => {
 };
 
 export default Team;
-
