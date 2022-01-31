@@ -47,10 +47,10 @@ app.post('/api/students', (req, res) => {
     surname: joi.string().min(5).max(45).required(),
     email: joi.string().email().required(),
     description: joi.string().min(20).max(300).required(),
-    headline: joi.string().required(),
+    headline: joi.string(),
     photo: joi.string().required(),
     avatar: joi.string(),
-    phone: joi.string().min(9).max(10).pattern(/^[0-9]+$/).required(),
+    phone: joi.string().min(9).max(10).pattern(/^[0-9]+$/),
     age: joi.number(),
     skills: joi.object({
       programming: joi.number(),
@@ -65,6 +65,8 @@ app.post('/api/students', (req, res) => {
     })
   });
   const result = studentSchema.validate(body);
+  // console.log(result);
+
   const { value, error } = result;
   // if there is no error, body is considered valid
   if (error == null) {
