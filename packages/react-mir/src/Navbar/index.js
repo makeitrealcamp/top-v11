@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CountContext } from '../App';
 
-class Navbar extends React.Component {
-  render() {
-    const routes = this.props.routes;
-    return (
+const Navbar = ({routes}) => {
+  const context = useContext(CountContext);
+
+  return (
+    <>
+      <p className="context-count">Count: {context.count}</p>
+      <button
+        type='button'
+        onClick={() => context.setCount(context.count +1)}>
+        +1
+      </button>
       <nav className='navbar'>
         <ul>
           { routes.map((route, index) => (
@@ -14,8 +22,8 @@ class Navbar extends React.Component {
           )) }
         </ul>
       </nav>
-    );
-  }
+    </>
+  );
 }
 
 export default Navbar;
