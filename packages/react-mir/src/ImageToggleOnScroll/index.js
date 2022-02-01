@@ -25,7 +25,8 @@ const ImageToggleOnScroll = ({ primaryImg, accentImg }) => {
   }
 
   return (
-    <img src={inView ? accentImg : primaryImg} 
+    // <img src={inView ? accentImg : primaryImg} 
+    <img src={primaryImg} 
       alt='' height="100" width="100" ref={imageRef} />
   )
 }
