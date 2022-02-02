@@ -8,29 +8,20 @@ import Footer from './Footer/';
 import './App.scss';
 
 // createContext
-export const CountContext = React.createContext({
-  count: [{ name: 'Home', url: '/' },
-  { name: 'Team', url: '/team' },
-  { name: 'Features', url: '/features' },
-  { name: 'Contact', url: '/contact' }],
-  setCount: () => {}
+export const RouteContext = React.createContext({
 });
 
-const routes = [
-  { name: 'Home', url: '/' },
+const App = () => {
+  const [routes, setRoutes] = useState([{ name: 'Home', url: '/' },
   { name: 'Team', url: '/team' },
   { name: 'Features', url: '/features' },
-  { name: 'Contact', url: '/contact' }
-];
-
-const App = () => {
-  const [count, setCount] = useState(0);
+  { name: 'Contact', url: '/contact' }]);
 
   return (
     <div className='App'>
-      <CountContext.Provider value={{ count, setCount }}>
-        <Header company='Make It Real' routes={routes} />
-      </CountContext.Provider>
+      <RouteContext.Provider value={{ routes, setRoutes }}>
+        <Header company='Make It Real'/>
+      </RouteContext.Provider>
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='team' element={ <Team /> }/>
