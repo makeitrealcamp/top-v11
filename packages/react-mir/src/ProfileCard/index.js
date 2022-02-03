@@ -1,5 +1,6 @@
 import React from "react";
 import ImageToggleOnMouseOver from '../ImageToggleOnMouseOver/';
+import { UserContext } from '../App';
 
 class ProfileCard extends React.Component {
   constructor(props) {
@@ -33,9 +34,10 @@ class ProfileCard extends React.Component {
     return (
       <div className="profile-card">
         <div className="image">
-          <ImageToggleOnMouseOver primaryImg={ photo !== '' ? photo : 'https://via.placeholder.com/400' }
-                                  secondaryImg={ avatar !== '' ? avatar : 'https://via.placeholder.com/400' }
-                                  alt='' />
+          <ImageToggleOnMouseOver 
+            primaryImg={photo !== '' ? photo : 'https://via.placeholder.com/400'}
+            secondaryImg={avatar !== '' ? avatar : 'https://via.placeholder.com/400'}
+            alt='' />
         </div>
         <div className="name">{name}</div>
         <p>{summary}</p>
@@ -46,10 +48,18 @@ class ProfileCard extends React.Component {
           <button onClick={this.toggleDescription}>
             Read {this.state.showDescription ? "Less" : "More"}
           </button>
-          { renderContactButton() }
+          {renderContactButton()}
         </div>
         <button onClick={() => onFeatureProfile(name)}>Feature this Mentor!</button>
-        <button onClick={() => onDeleteProfile(this.props.mentor)}>You are Fired!</button>
+        <UserContext.Consumer>
+          { (value) => {
+            return (
+              <>
+                <span>Admin: { value.username }</span>
+                { value.isAdmin ? <button onClick={() => onDeleteProfile(this.props.mentor)}>You are Fired!</button> : <p>Not admin</p> }
+              </>)
+          }}
+        </UserContext.Consumer>
       </div>
     );
   }

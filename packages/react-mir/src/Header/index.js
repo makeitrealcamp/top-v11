@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from 'prop-types';
 import Navbar from "../Navbar/";
+import { UserContext } from '../App';
 
-const Header = ({ company, routes }) => {
+const Header = ({ company }) => {
+  const context = useContext(UserContext);
+
   return (
     <header>
       <span id="company-name">{company}</span>
       <span className="flex"></span>
-      <Navbar routes={routes} />
+      { context.isAdmin ? <span>{ context.username }</span> : <span>Not an admin!</span>}
+      <Navbar />
     </header>
   );
 }
 
 Header.propTypes = {
-  company: PropTypes.string,
-  routes: PropTypes.array.isRequired
+  company: PropTypes.string
 }
 
 Header.defaultProps = {
