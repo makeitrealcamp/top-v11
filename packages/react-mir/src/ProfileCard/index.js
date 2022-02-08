@@ -55,7 +55,6 @@ class ProfileCard extends React.Component {
           { (value) => {
             return (
               <>
-                <span>Admin: { value.username }</span>
                 { value.isAdmin ? <button onClick={() => onDeleteProfile(this.props.mentor)}>You are Fired!</button> : <p>Not admin</p> }
               </>)
           }}

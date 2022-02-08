@@ -9,10 +9,14 @@ import './App.scss';
 
 export const UserContext = React.createContext(undefined);
 export const RouteContext = React.createContext({});
+export const ThemeContext = React.createContext(undefined);
 
-const initUser = {
+const mockUser = {
+  id: 1,
   username: 'John Doe',
-  isAdmin: false
+  token: 'secret',
+  email: 'john.doe@gmail.com',
+  isAdmin: true
 }
 
 const initRoutes = [
@@ -22,28 +26,42 @@ const initRoutes = [
   { name: 'Contact', url: '/contact' }
 ];
 
+export const ThemeColors = {
+  light: {
+    backgroundColor: '#cccccc',
+    color: '#222222'
+  },
+  dark: {
+    backgroundColor: '#272727',
+    color: '#f6f4e6'
+  }
+};
+
 const App = () => {
-  const [userDetails, setUserDetails] = useState(initUser);
+  const [userDetails, setUserDetails] = useState(mockUser);
+  const [theme, setTheme] = useState('dark');
 
   return (
     <div className='App'>
-      <UserContext.Provider value={userDetails}>
-        <RouteContext.Provider value={initRoutes}>
-          <Header company='Make It Real' />
-        </RouteContext.Provider>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='team' element={<Team />} />
-          <Route
-            path='*'
-            element={
-              <main>
-                <h2>We weren't able to find what you were looking for</h2>
-              </main>
-            } />
-        </Routes>
-        <Footer />
-      </UserContext.Provider>
+      <ThemeContext.Provider value={{theme, setTheme}}>
+        <UserContext.Provider value={userDetails}>
+          <RouteContext.Provider value={initRoutes}>
+            <Header company='Make It Real' />
+          </RouteContext.Provider>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='team' element={<Team />} />
+            <Route
+              path='*'
+              element={
+                <main>
+                  <h2>We weren't able to find what you were looking for</h2>
+                </main>
+              } />
+          </Routes>
+          <Footer />
+        </UserContext.Provider>
+      </ThemeContext.Provider>
     </div>
   );
 }

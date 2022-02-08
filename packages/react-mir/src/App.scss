@@ -9,7 +9,6 @@
 }
 
 header {
-  background: #272727;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,8 +16,6 @@ header {
   #company-name {
     font-weight: 700;
     font-size: 1.2em;
-    color: #f6f4e6;
-    font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
   }
 }
@@ -162,8 +159,6 @@ section.box .mentors-container .profile-card {
 }
 
 footer {
-  background: #272727;
-  color: #f6f4e6;
   display: flex;
   justify-content: space-between;
   align-items: center;

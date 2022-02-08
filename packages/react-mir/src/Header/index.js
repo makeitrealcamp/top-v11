@@ -1,16 +1,23 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from 'prop-types';
 import Navbar from "../Navbar/";
-import { UserContext } from '../App';
+import { UserContext, ThemeColors, ThemeContext } from '../App';
 
 const Header = ({ company }) => {
-  const context = useContext(UserContext);
+  const user = useContext(UserContext);
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const toggleTheme = () => {
+    theme == 'dark' ? setTheme('light'): setTheme('dark')
+  }
 
   return (
-    <header>
-      <span id="company-name">{company}</span>
+    <header style={ ThemeColors[theme] }>
+      <span id="company-name" style={ ThemeColors[theme] }>{company}</span>
       <span className="flex"></span>
-      { context.isAdmin ? <span>{ context.username }</span> : <span>Not an admin!</span>}
+      <button onClick={ () => toggleTheme() }>Theme Toggle</button>
+      <span className="flex"></span>
+      { user.isAdmin ? <span>{ user.username }</span> : <span>Not an admin!</span>}
       <Navbar />
     </header>
   );
