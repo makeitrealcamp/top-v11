@@ -4,6 +4,7 @@ const FyleSync = require('lowdb/adapters/FileSync');
 const joi = require('joi');
 const { nanoid } = require('nanoid');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
 
 // Server Setup
 const PORT = 3001;
@@ -11,7 +12,7 @@ const PORT = 3001;
 // Database Setup
 const adapter = new FyleSync('db.json');
 const db = lowdDB(adapter);
-db.defaults({ students: [] }).write();
+db.defaults({ users: [], students: [] }).write();
 
 // Express Setup
 const app = express();
@@ -22,7 +23,77 @@ app.use(cors({
   origin: '*'
 }));
 
+const saltRounds = 10;
+const secret = 'mir-secret-key';
+
 /** Endpoints (Routes) */ 
+
+// Auth ... "Users"
+const isAuthenticated = () => {}
+
+// register POST: Create user
+app.post('/api/register', (req, res) => {
+  // get body from request
+  const body = req.body;
+  // validate body
+  const userSchema = joi.object({
+    name: joi.string().min(3).max(45).required(),
+    surname: joi.string().min(5).max(45).required(),
+    email: joi.string().email().required(),
+    password: joi.string().required()
+  });
+  const result = userSchema.validate(body);
+  const { value, error } = result;
+  if (error == null) {
+    const salt = bcrypt.genSaltSync(saltRounds);
+    const encrPassword = bcrypt.hashSync(body.password, salt);
+    const user = {
+      _id: nanoid(),
+      ...value,
+      password: encrPassword,
+      createdAt: Date.now()
+    };
+    db.get('users').push(user).write();
+    res.status(200).json({ success: true, message: 'User has been created', data: user });
+  } else {
+    res.status(400).json({ success: false, message: 'Validation error', data: value, error: error.details });
+  }
+});
+
+// login POST
+app.post('/api/login', (req, res) => {
+  // get body from request
+  const { value, error } = joi.object({
+    email: joi.string().email().required(),
+    password: joi.string().required() // encr
+  }).validate(body);
+  if (error == null) {
+    const user = db.get('users').find({ email: body.email }).value(); // query
+    if (user) {
+      // validate password
+      const isValidPassword = bcrypt.compareSync(body.password, user.password);
+      if (isValidPassword) {
+        res.status(200).json({ success: true, data: {
+          id: user._id,
+          name: user.name, 
+          surname: user.surname, 
+          email: user.email, 
+          token: secret
+        }});
+      } else {
+        res.status(403).json({ success: false, message: 'Wrong password'});
+      }
+    } else {
+      res.status(403).json({ success: false, message: 'Unauthorized'});
+    }
+  } else {
+    // validation error
+    res.status(400).json({ success: false, message: 'Validation error', data: value, error: error.details });
+  }
+});
+
+// logout
+
 // Resource: Students
 // GET: fetch students
 app.get('/api/students', (req, res) => {
@@ -47,10 +118,10 @@ app.post('/api/students', (req, res) => {
     surname: joi.string().min(5).max(45).required(),
     email: joi.string().email().required(),
     description: joi.string().min(20).max(300).required(),
-    headline: joi.string().required(),
+    headline: joi.string(),
     photo: joi.string().required(),
     avatar: joi.string(),
-    phone: joi.string().min(9).max(10).pattern(/^[0-9]+$/).required(),
+    phone: joi.string().min(9).max(10).pattern(/^[0-9]+$/),
     age: joi.number(),
     skills: joi.object({
       programming: joi.number(),
