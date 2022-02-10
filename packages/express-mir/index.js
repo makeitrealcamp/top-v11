@@ -42,8 +42,7 @@ app.post('/api/register', (req, res) => {
     email: joi.string().email().required(),
     password: joi.string().required()
   });
-  const result = userSchema.validate(body);
-  const { value, error } = result;
+  const { value, error } = userSchema.validate(body);
   if (error == null) {
     const salt = bcrypt.genSaltSync(saltRounds);
     const encrPassword = bcrypt.hashSync(body.password, salt);
@@ -62,6 +61,7 @@ app.post('/api/register', (req, res) => {
 
 // login POST
 app.post('/api/login', (req, res) => {
+  const body = req.body;
   // get body from request
   const { value, error } = joi.object({
     email: joi.string().email().required(),
@@ -84,7 +84,7 @@ app.post('/api/login', (req, res) => {
         res.status(403).json({ success: false, message: 'Wrong password'});
       }
     } else {
-      res.status(403).json({ success: false, message: 'Unauthorized'});
+      res.status(403).json({ success: false, message: 'Email not registered'});
     }
   } else {
     // validation error
