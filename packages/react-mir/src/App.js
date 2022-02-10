@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // Components
+import Login from './Login/';
 import Header from './Header/';
 import Home from './Home/';
 import Team from './Team/';
@@ -12,11 +13,7 @@ export const RouteContext = React.createContext({});
 export const ThemeContext = React.createContext(undefined);
 
 const mockUser = {
-  id: 1,
-  username: 'John Doe',
-  token: 'secret',
-  email: 'john.doe@gmail.com',
-  isAdmin: true
+  isAdmin: false
 }
 
 const initRoutes = [
@@ -38,19 +35,25 @@ export const ThemeColors = {
 };
 
 const App = () => {
-  const [userDetails, setUserDetails] = useState(mockUser);
+  const [user, setUser] = useState(mockUser);
   const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('token', user.token);
+  }, [user]); 
 
   return (
     <div className='App'>
       <ThemeContext.Provider value={{theme, setTheme}}>
-        <UserContext.Provider value={userDetails}>
+        <UserContext.Provider value={{user, setUser}}>
           <RouteContext.Provider value={initRoutes}>
             <Header company='Make It Real' />
           </RouteContext.Provider>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='team' element={<Team />} />
+            <Route path='login' element={<Login />} />
+            <Route path='team' element={<Team />} /> 
             <Route
               path='*'
               element={

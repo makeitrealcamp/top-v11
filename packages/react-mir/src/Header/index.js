@@ -4,7 +4,7 @@ import Navbar from "../Navbar/";
 import { UserContext, ThemeColors, ThemeContext } from '../App';
 
 const Header = ({ company }) => {
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
@@ -17,7 +17,7 @@ const Header = ({ company }) => {
       <span className="flex"></span>
       <button onClick={ () => toggleTheme() }>Theme Toggle</button>
       <span className="flex"></span>
-      { user.isAdmin ? <span>{ user.username }</span> : <span>Not an admin!</span>}
+      { user.token ? <span>{ user.name } { user.surname }</span> : <span>Not an admin!</span>}
       <Navbar />
     </header>
   );
