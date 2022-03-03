@@ -20,6 +20,8 @@
     "lowdb": "^1.0.0",
     "mongoose": "^6.2.4",
     "nanoid": "^3.2.0",
-    "nodemon": "^2.0.15"
+    "node-uuid": "^1.4.8",
+    "nodemon": "^2.0.15",
+    "winston": "^3.6.0"
   }
 }
