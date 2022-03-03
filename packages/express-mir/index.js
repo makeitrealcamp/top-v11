@@ -1,13 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const lowdDB = require('lowdb');
 const FyleSync = require('lowdb/adapters/FileSync');
+const bcrypt = require('bcryptjs');
 const joi = require('joi');
 const { nanoid } = require('nanoid');
-const cors = require('cors');
-const bcrypt = require('bcryptjs');
 
 // Server Setup
-const PORT = 3001;
+const config = require('./config');
+const { port } = config.server;
 
 // Database Setup
 const adapter = new FyleSync('db.json');
@@ -201,6 +202,6 @@ app.delete('/api/students/:id', (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-  console.log(`App listening on ${PORT}`);
+app.listen(port, () => {
+  console.log(`App listening on ${port}`);
 });
