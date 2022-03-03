@@ -202,6 +202,17 @@ app.delete('/api/students/:id', (req, res) => {
     }
 });
 
+// Error handler Middleware
+app.use((err, req, res, next) => {
+  const { message, statusCode = 500 } = err;
+  res.status(statusCode).json({ message, error: err });
+});
+
+// Routes not found Middleware
+app.use((req, res, next) => {
+  res.status(404).json({ message: 'Error route not found'});
+});
+
 app.listen(port, () => {
   console.log(`App listening on ${port}`);
 });
