@@ -12,6 +12,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "express": "^4.17.2",
     "joi": "^17.6.0",
     "lowdb": "^1.0.0",
