@@ -4,8 +4,9 @@
   "description": "Express MIR API",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js --ignore db.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env NODE_ENV=development nodemon index.js --ignore db.json",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "test": "cross-env NODE_ENV=test echo \"Error: no test specified\" && exit 1"
   },
   "author": "Pablovem <contact@pablovem.com>",
   "license": "ISC",
