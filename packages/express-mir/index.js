@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const morgan = require('morgan');
+const uuid = require('node-uuid');
 const lowdDB = require('lowdb');
 const FyleSync = require('lowdb/adapters/FileSync');
 const bcrypt = require('bcryptjs');
@@ -19,6 +21,14 @@ db.defaults({ users: [], students: [] }).write();
 const app = express();
 
 // Global Middlewares
+morgan.token('id', function getId (req) {
+  return req.id
+})
+app.use((req, res, next) => {
+  req.id = uuid.v4();
+  next();
+});
+app.use(morgan(':id :method :url :response-time ms :user-agent'))
 app.use(express.json());
 app.use(cors({
   origin: '*'
