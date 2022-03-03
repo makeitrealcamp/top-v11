@@ -11,6 +11,7 @@ const { nanoid } = require('nanoid');
 // Server Setup
 const config = require('./config');
 const { port } = config.server;
+const logger = require('./config/logger');
 
 // Database Setup
 const adapter = new FyleSync('db.json');
@@ -212,15 +213,17 @@ app.delete('/api/students/:id', (req, res) => {
     }
 });
 
+// Routes not found Middleware
+app.use((req, res, next) => {
+  logger.warn('Route not found');
+  res.status(404).json({ message: 'Error: Route not found'});
+});
+
 // Error handler Middleware
 app.use((err, req, res, next) => {
   const { message, statusCode = 500 } = err;
+  logger.error(message);
   res.status(statusCode).json({ message, error: err });
-});
-
-// Routes not found Middleware
-app.use((req, res, next) => {
-  res.status(404).json({ message: 'Error route not found'});
 });
 
 app.listen(port, () => {
