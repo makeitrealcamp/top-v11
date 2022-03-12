@@ -18,6 +18,12 @@ const adapter = new FyleSync('db.json');
 const db = lowdDB(adapter);
 db.defaults({ users: [], students: [] }).write();
 
+const database = require('./database');
+// connection
+database.connect(config.database, {
+  useNewUrlParser: true
+});
+
 // Express Setup
 const app = express();
 
@@ -34,6 +40,12 @@ app.use(express.json());
 app.use(cors({
   origin: '*'
 }));
+
+// Routes
+const tasks = require('./tasks/routes');
+
+// Resource: Tasks
+app.use('/api/tasks', tasks); // ERR
 
 const saltRounds = 10;
 const secret = 'mir-secret-key';
