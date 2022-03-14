@@ -5,7 +5,10 @@ const mongoose = require('mongoose');
 exports.fetch = async (req, res, next) => {
   try {
     const docs = await Model.find({}).exec();
-    res.status(200).json({ success: true, data: docs });
+    res.status(200).json({ 
+      success: true, 
+      data: docs 
+    });
   } catch (err) {
     next(new Error(err))
   }
@@ -16,7 +19,7 @@ exports.read = async (req, res, next) => {
   try {
     const doc = await Model.findById(id).exec();
     if (!doc) {
-      const message = `${Model.mode} not found`;
+      const message = `${Model.modelName} not found`;
       next({
         message,
         statusCode: 404,
@@ -37,7 +40,11 @@ exports.create = async (req, res, next) => {
     const doc = await document.save();
     logger.info('Document saved:', doc);
     res.status(201); // CREATED
-    res.json({ success: true, message: 'Task has been created', data: doc });
+    res.json({ 
+      success: true, 
+      message: `${Model.modelName} has been created`, 
+      data: doc
+    });
   } catch (err) {
     next(new Error(err));
   }
@@ -53,7 +60,7 @@ exports.update = async (req, res, next) => {
     }, { });
     res.status(200).json({ 
       success: true, 
-      message: `${Model.mode} has been updated`,
+      message: `${Model.modelName} has been updated`,
       data: updated
     });
   } catch (err) {
@@ -65,7 +72,11 @@ exports.delete = async (req, res, next) => {
   const { id = null } = req.params;
   try {
     const removed = await Model.deleteOne({ _id: id });
-    res.status(200).json({ success: true, message: 'Task has been deleted', data: removed});
+    res.status(200).json({ 
+      success: true,
+      message: `${Model.modelName} has been deleted`,
+      data: removed
+    });
   } catch (err) {
     next(new Error(err));
   }
