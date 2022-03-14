@@ -1,10 +1,22 @@
 const Model = require('./model');
 const logger = require('../config/logger');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
+// fetch all documents from collection
 exports.fetch = async (req, res, next) => {
+  let { limit = 10, skip, page = 1 } = req.query
+
+  limit = parseInt(limit, 10);
+  page = parseInt(page, 10);
+  
+  if (skip) {
+    skip = parseInt(skip, 10);
+  } else {
+    skip = (page - 1) * limit;
+  }
+
   try {
-    const docs = await Model.find({}).exec();
+    const docs = await Model.find({}).skip(skip).limit(limit).exec();
     res.status(200).json({ 
       success: true, 
       data: docs 
