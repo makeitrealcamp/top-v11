@@ -4,13 +4,22 @@ const { paginationParseParams } = require('../utils');
 
 // fetch all documents from collection
 exports.fetch = async (req, res, next) => {
-  const { limit, skip } = paginationParseParams(req.query);
-
+  const { page, limit, skip } = paginationParseParams(req.query);
+  const all = Model.find({}).skip(skip).limit(limit);
+  const count = Model.countDocuments();
   try {
-    const docs = await Model.find({}).skip(skip).limit(limit).exec();
+    const [docs, total] = await Promise.all([all.exec(), count.exec()]);
+    const pages = Math.ceil(total/limit);
     res.status(200).json({ 
       success: true, 
-      data: docs 
+      data: docs,
+      meta: {
+        page,
+        limit, 
+        skip,
+        total,
+        pages,
+      }
     });
   } catch (err) {
     next(new Error(err))
