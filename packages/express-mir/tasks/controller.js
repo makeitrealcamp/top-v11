@@ -1,11 +1,17 @@
-const Model = require('./model');
+const { Model, fields } = require('./model');
 const logger = require('../config/logger');
-const { paginationParseParams } = require('../utils');
+const { paginationParseParams, sortParseParams, sortingStr } = require('../utils');
 
 // fetch all documents from collection
 exports.fetch = async (req, res, next) => {
   const { page, limit, skip } = paginationParseParams(req.query);
-  const all = Model.find({}).skip(skip).limit(limit);
+  const { sortBy, direction } = sortParseParams(req.query, fields);
+
+  const all = Model.find({})
+    .sort(sortingStr(sortBy, direction))
+    .skip(skip)
+    .limit(limit);
+
   const count = Model.countDocuments();
   try {
     const [docs, total] = await Promise.all([all.exec(), count.exec()]);

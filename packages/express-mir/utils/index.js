@@ -1,6 +1,6 @@
 const config = require('../config');
 
-const { pagination } = config;
+const { pagination, sort } = config;
 
 const paginationParseParams = ({
   page = pagination.page,
@@ -14,6 +14,25 @@ const paginationParseParams = ({
   }
 };
 
+const sortParseParams = ({
+  sortBy = sort.sortBy.default,
+  direction = sort.direction.default
+}, fields) => {
+  const docFields = [...Object.getOwnPropertyNames(fields), ...sort.sortBy.fields];
+  const directionOptions = sort.direction.options;
+  return {
+    sortBy: docFields.includes(sortBy) ? sortBy : sort.sortBy.default,
+    direction: directionOptions.includes(direction) ? direction : sort.direction.default,
+  }
+};
+
+const sortingStr = (sortBy, direction) => {
+  const dir = direction === sort.direction.default ? '-' : '';
+  return `${dir}${sortBy}`
+}
+
 module.exports = {
-  paginationParseParams
+  paginationParseParams,
+  sortParseParams,
+  sortingStr
 };
