@@ -22,9 +22,18 @@ const fields = {
   }
 };
 
-const taskSchema = Schema(fields, { timestamps: true });
+const references = {
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  }
+};
+
+const taskSchema = Schema(Object.assign(fields, references), { timestamps: true });
 
 module.exports = {
   Model: mongoose.model('Task', taskSchema),
-  fields
+  fields,
+  references
 };

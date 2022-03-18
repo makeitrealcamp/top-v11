@@ -1,6 +1,7 @@
-const { Model, fields } = require('./model');
+const { Model, fields, references } = require('./model');
 const logger = require('../config/logger');
 const { paginationParseParams, sortParseParams, sortingStr } = require('../utils');
+const referencesNames = Object.getOwnPropertyNames(references);
 
 // fetch all documents from collection
 exports.fetch = async (req, res, next) => {
@@ -34,8 +35,9 @@ exports.fetch = async (req, res, next) => {
 
 exports.read = async (req, res, next) => {
   const { id = null } = req.params;
+  const populate = referencesNames.join(' ');
   try {
-    const doc = await Model.findById(id).exec();
+    const doc = await Model.findById(id).populate(populate).exec();
     if (!doc) {
       const message = `${Model.modelName} not found`;
       next({
