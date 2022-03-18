@@ -43,9 +43,11 @@ app.use(cors({
 
 // Routes
 const tasks = require('./tasks/routes');
+const users = require('./users/routes');
 
 // Resource: Tasks
-app.use('/api/tasks', tasks); // ERR
+app.use('/api/tasks', tasks);
+app.use('/api/users', users);
 
 const saltRounds = 10;
 const secret = 'mir-secret-key';
