@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const { hash, compare } = require('bcryptjs');
 
 const fields = {
-  name: {
+  firstname: {
     type: String,
     required: true,
   },
-  surname: {
+  lastname: {
     type: String,
     required: true,
   },
@@ -16,15 +17,61 @@ const fields = {
     required: true,
     trim: true,
     lowercase: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    minLength: 6,
+    trim: true,
   }
 };
 
-const references = {};
+const userSchema = Schema(fields, { 
+  timestamps: true,
+  toJSON: {
+    virtuals: true,
+  },
+  toObject: {
+    virtuals: true,
+  }
+});
 
-const userSchema = Schema(Object.assign(fields, references), { timestamps: true });
+userSchema.pre('save', async function save(next) {
+  if (this.isNew || this.isModified('password')) {
+    this.password = await hash(this.password, 10);
+  }
+  next();
+});
+
+userSchema.virtual('name')
+  .get(function getName() {
+    return `${this.firstname} ${this.lastname}`;
+  })
+  .set(function setName() {
+    const { firstname = '', lastname = '' } = name.split(' ');
+    this.firstname = firstname;
+    this.lastname = lastname;
+  });
+
+const hiddenFields = ['password'];
+
+userSchema.methods.toJSON = function toJSON() {
+  const doc = this.toObject();
+  hiddenFields.forEach((field) => {
+    console.log(field);
+    if (Object.hasOwnProperty.call(doc, field)) {
+      delete doc[field];
+    }
+  });
+  return doc;
+}
+
+userSchema.methods.verifyPassword = function verifyPassword(password) {
+  console.log(password);
+  return compare(password, this.password);
+}
 
 module.exports = {
   Model: mongoose.model('User', userSchema),
-  fields,
-  references
+  fields
 };
