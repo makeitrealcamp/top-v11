@@ -22,6 +22,10 @@ const config = {
       default: 'desc',
       options: ['asc', 'desc'],
     }
+  },
+  token: {
+    secret: process.env.TOKEN_SECRET,
+    expires: process.env.TOKEN_EXPIRES
   }
 };
 
