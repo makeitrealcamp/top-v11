@@ -43,10 +43,12 @@ app.use(cors({
 
 // Routes
 const tasks = require('./tasks/routes');
+const groups = require('./groups/routes');
 const users = require('./users/routes');
 
 // Resource: Tasks
 app.use('/api/tasks', tasks);
+app.use('/api/groups', groups);
 app.use('/api/users', users);
 
 const saltRounds = 10;
