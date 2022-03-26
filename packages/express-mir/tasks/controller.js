@@ -7,8 +7,10 @@ const referencesNames = Object.getOwnPropertyNames(references);
 exports.fetch = async (req, res, next) => {
   const { page, limit, skip } = paginationParseParams(req.query);
   const { sortBy, direction } = sortParseParams(req.query, fields);
+  const populate = referencesNames.join(' ');
 
   const all = Model.find({})
+    .populate(populate)
     .sort(sortingStr(sortBy, direction))
     .skip(skip)
     .limit(limit);
@@ -55,6 +57,7 @@ exports.read = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   const body = req.body;
+
   const document = new Model(body);
   try {
     const doc = await document.save();
