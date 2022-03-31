@@ -23,6 +23,11 @@ const fields = {
     required: true,
     minLength: 6,
     trim: true,
+  },
+  role: {
+    type: String,
+    default: 'basic',
+    enum: ['basic', 'supervisor', 'admin']
   }
 };
 
@@ -58,7 +63,6 @@ const hiddenFields = ['password'];
 userSchema.methods.toJSON = function toJSON() {
   const doc = this.toObject();
   hiddenFields.forEach((field) => {
-    console.log(field);
     if (Object.hasOwnProperty.call(doc, field)) {
       delete doc[field];
     }
