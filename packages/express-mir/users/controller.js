@@ -3,6 +3,24 @@ const logger = require('../config/logger');
 const { sign } = require('jsonwebtoken');
 const { paginationParseParams, sortParseParams, sortingStr } = require('../utils');
 
+exports.search = async (req, res, next) => {
+  const { id = null } = req.params;
+  try {
+    const search = req.body.name;
+    const docs = await Model.find({
+      '$or': [
+        {'firstname': { $regex: `.*${search}.*`  } },
+        {'lastname': { $regex: `.*${search}.*`  } }
+      ]});
+    res.status(200).json({ 
+      success: true, 
+      data: docs
+    });
+  } catch (err) {
+    next(new Error(err));
+  }
+};
+
 // fetch all documents from collection
 exports.fetch = async (req, res, next) => {
   const { page, limit, skip } = paginationParseParams(req.query);
@@ -33,33 +51,14 @@ exports.fetch = async (req, res, next) => {
   }
 };
 
-exports.read = async (req, res, next) => {
-  const { id = null } = req.params;
-  try {
-    const doc = await Model.findById(id).exec();
-    if (!doc) {
-      const message = `${Model.modelName} not found`;
-      next({
-        message,
-        statusCode: 404,
-        level: 'warn'
-      })
-    } else {
-      res.status(200).json({ success: true, data: doc })
-    }
-  } catch (err) {
-    next(new Error(err));
-  }
-};
-
 exports.signup = async (req, res, next) => {
   const body = req.body;
   const document = new Model(body);
 
   try {
     const user = await document.save();
-    const { _id } = user;
-    const token = await sign({ _id }, 'makeitreal', { expiresIn: 60 * 60 });
+    const { _id, role } = user;
+    const token = await sign({ _id, role }, 'makeitreal', { expiresIn: 60 * 60 });
     res.status(201); // Created
     res.json({ 
       success: true,  
@@ -93,8 +92,8 @@ exports.signin = async (req, res, next) => {
           message: `Email or Password are invalid`,
         });
       } else {
-        const { _id } = user;
-        const token = sign({ _id }, 'makeitreal', { expiresIn: 60 * 60 });
+        const { _id, role } = user;
+        const token = sign({ _id, role }, 'makeitreal', { expiresIn: 60 * 60 });
         res.status(200);
         res.json({ 
           success: true,  
@@ -121,6 +120,57 @@ exports.create = async (req, res, next) => {
       success: true, 
       message: `${Model.modelName} has been created`, 
       data: doc
+    });
+  } catch (err) {
+    next(new Error(err));
+  }
+};
+
+exports.read = async (req, res, next) => {
+  const { id = null } = req.params;
+  try {
+    const doc = await Model.findById(id).exec();
+    if (!doc) {
+      const message = `${Model.modelName} not found`;
+      next({
+        message,
+        statusCode: 404,
+        level: 'warn'
+      })
+    } else {
+      res.status(200).json({ success: true, data: doc })
+    }
+  } catch (err) {
+    next(new Error(err));
+  }
+};
+
+exports.update = async (req, res, next) => {
+  const { id } = req.params;
+  const body = req.body;
+  logger.info(`id: ${id}, ${body}`);
+  try {
+    const updated = await Model.findByIdAndUpdate(id, {
+      $set: body
+    }, { });
+    res.status(200).json({ 
+      success: true, 
+      message: `${Model.modelName} has been updated`,
+      data: updated
+    });
+  } catch (err) {
+    next(new Error(err));
+  }
+};
+
+exports.delete = async (req, res, next) => {
+  const { id = null } = req.params;
+  try {
+    const removed = await Model.deleteOne({ _id: id });
+    res.status(200).json({ 
+      success: true,
+      message: `${Model.modelName} has been deleted`,
+      data: removed
     });
   } catch (err) {
     next(new Error(err));
