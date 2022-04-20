@@ -5,11 +5,17 @@ const referencesNames = Object.getOwnPropertyNames(references);
 
 // fetch all documents from collection
 exports.fetch = async (req, res, next) => {
+  const { params = {} } = req;
   const { page, limit, skip } = paginationParseParams(req.query);
   const { sortBy, direction } = sortParseParams(req.query, fields);
   const populate = referencesNames.join(' ');
 
-  const all = Model.find({})
+  let findQuery = {};
+  if (params.userId) {
+    findQuery = { userId: params.userId };
+  }
+
+  const all = Model.find(findQuery)
     .populate(populate)
     .sort(sortingStr(sortBy, direction))
     .skip(skip)
@@ -57,6 +63,8 @@ exports.read = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   const body = req.body;
+  const { _id } = req.decoded;
+  body.userId = _id;
 
   const document = new Model(body);
   try {
