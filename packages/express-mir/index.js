@@ -164,6 +164,8 @@ app.post('/api/students', (req, res) => {
     })
   });
   const result = studentSchema.validate(body);
+  // console.log(result);
+
   const { value, error } = result;
   // if there is no error, body is considered valid
   if (error == null) {
