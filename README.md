@@ -32,6 +32,41 @@ Adicionales: M-J
 16. Kerwin Sandoval
 17. Rody Castillo
 
+## Como es un dia de estudio durante el programa TOP?
+
+### 8:30 am - 10:00 am:
+Clase Magistral con mentor principal
+
+### 10:00 am - 1:30 pm:
+Pueden ocurrir varias actividades en este rango de tiempo
+- Clase de habilidades blandas
+- Clase de ingles
+- Reuniones con mentores de apoyo
+- Trabajar, codificar, en tu proyecto grupal/personal
+- Resolver dudas con los mentores.
+- Planeacion del sprint
+- Demo del entregable anterior
+- Retrospectiva del spint
+- Terminar los retos o misiones que son asignados en clase
+
+### 01:00 pm - 2:30 pm
+Tiempo para almorzar
+
+### 02:30 pm - 03:30 pm:
+Clase Magistral con mentor principal
+
+### 03:30 pm - 6:30 pm:
+Pueden ocurrir varias actividades en este rango de tiempo
+- Clase de habilidades blandas
+- Clase de ingles
+- Reuniones con mentores de apoyo
+- Trabajar, codificar, en tu proyecto grupal/personal
+- Resolver dudas con los mentores.
+- Planeacion del sprint
+- Demo del entregable anterior
+- Retrospectiva del spint
+- Terminar los retos o misiones que son asignados en clase
+
 ## Entregables proyecto grupal 💻🤝
 
 - **Modulo 1**: Wireframes y backlog del proyecto e Historias de usuario.
@@ -45,14 +80,44 @@ Adicionales: M-J
 - **Modulo 9**: CI/CD del backend y el frontend.
 - **Modulo 10**: `DEMO Publico` 🎊🎉💻🎊🎉
 
+## Grabacion de las clases 🎥👨🏼‍🏫
+
+
+
 ## Requisitos para culminar satisfactoriamente el programa
 
 Deberás presentar y aprobar las siguienes misiones:
 
 1. Assesment Frontend.
-2. Assesment Backend.
-3. Assesment LinkedIn.
-4. Assesment CV.
-5. Assesment Github.
-6. Proyecto Grupal.
-7. Proyecto Individual.
+2. Assesment LinkedIn.
+3. Assesment CV.
+4. Assesment Github.
+5. Proyecto Grupal.
+6. Proyecto Individual.
+
+Los lineamientos para los proyectos individuale y grupales son estos:
+
+**El Proyecto Grupal debe tener:**
+
+- Registro y autenticación de usuarios.
+- Almacenar información en una base de datos (MongoDB).
+- El backend debe estar implementado en Node.js (Express) y el frontend en React.
+- Debe incluir carga de imágenes y envío de correos.
+- Debe tener al menos una de las siguientes funcionalidades:
+    - Pagos
+    - Presentar información en un mapa.
+    - Tiempo Real (Web Sockets).
+- Debe estar desplegada en Internet (Netllify, Heroku, Vercel)
+- Debe al menos tener pruebas end-to-end con Cypress.
+
+**El Proyecto Individual:**
+
+- Utilizar react.js (mobile o web) y/o node.js
+- Autenticación de usuarios.
+- Debe incluir carga de imágenes.
+- Se debe presentar un video a modo de DEMO de no mas de 7 minutos donde el estudiantes exponga los siguientes temas:
+    1. Introducción (Nombre del proyecto, URL’s).
+    2. Descripción de la aplicación.
+    3. Metodología (Jira, Github, SCRUM, sprintes)
+    4. Tecnologías (React, Material, Express, [Socket.io](http://socket.io/), MongoDB, )
+    5. Diagrama de como esta distribuida su aplicacion (arquitectura) backend, frontend, servicios extras
