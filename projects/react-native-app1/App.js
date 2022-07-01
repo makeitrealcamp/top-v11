@@ -1,7 +1,13 @@
 import { Text, View, Button, Alert, TouchableOpacity } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 import { CustomButton } from "./components/CustomButton";
 import { Layout } from "./components/Layout";
+import { Profile } from "./components/Profile";
+import { Home } from "./components/Home";
 
 import styles from "./styles";
 
@@ -13,7 +19,14 @@ export default function App() {
     Alert.alert("Click");
   };
 
-  return <Layout />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home}></Stack.Screen>
+        <Stack.Screen name="Profile" component={Profile}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 {

@@ -5,7 +5,7 @@ import styles from "./style";
 
 const { container, box1, box2, borderColor } = styles;
 
-const Layout = () => {
+const Layout = ({ children }) => {
   const [isAndroid, setIsAndroid] = useState(false);
 
   useEffect(() => {
@@ -14,11 +14,17 @@ const Layout = () => {
     }
   }, []);
 
-  return (
-    <SafeAreaView style={container}>
+  const renderChilds = () => (
+    <>
       <View style={box1} />
       <View style={box2} />
-    </SafeAreaView>
+    </>
+  );
+
+  return isAndroid ? (
+    <View style={container}>{children}</View>
+  ) : (
+    <SafeAreaView>{children}</SafeAreaView>
   );
 };
 
