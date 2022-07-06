@@ -3,9 +3,9 @@ import { SafeAreaView, Text, Platform, View } from "react-native";
 
 import styles from "./style";
 
-const { container, box1, box2, borderColor } = styles;
+const { container, box1, box2, borderColor, box3 } = styles;
 
-const Layout = () => {
+const Layout = ({ children }) => {
   const [isAndroid, setIsAndroid] = useState(false);
 
   useEffect(() => {
@@ -14,11 +14,22 @@ const Layout = () => {
     }
   }, []);
 
-  return (
-    <SafeAreaView style={container}>
+  const renderChildren = () => (
+    <>
       <View style={box1} />
       <View style={box2} />
-    </SafeAreaView>
+      <View style={[box3, borderColor]}>
+        <Text>item 1</Text>
+        <Text>item 2</Text>
+        <Text>item 3</Text>
+      </View>
+    </>
+  );
+
+  return isAndroid ? (
+    <View style={container}>{children}</View>
+  ) : (
+    <SafeAreaView>{children}</SafeAreaView>
   );
 };
 

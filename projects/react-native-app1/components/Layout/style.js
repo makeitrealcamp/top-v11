@@ -10,9 +10,17 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
   },
   box2: {
-    flex: 1,
+    flex: 3,
     backgroundColor: "blue",
   },
+  box3: {
+    flex: 1,
+    backgroundColor: "yellow",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  item: {},
   borderColor: {
     borderColor: "black",
     borderWidth: 5,
