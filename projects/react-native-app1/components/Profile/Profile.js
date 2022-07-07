@@ -3,6 +3,8 @@ import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 import { Layout } from "../Layout";
+import { CustomInput } from "../CustomInput";
+import { CustomButton } from "../CustomButton";
 
 import styles from "./style";
 
@@ -21,6 +23,11 @@ const {
 
 const Profile = () => {
   const [imageURI, setImageURI] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
   const uploadImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync();
@@ -28,6 +35,18 @@ const Profile = () => {
     if (!cancelled) {
       setImageURI(uri);
     }
+  };
+
+  const handleChangeText = (field, value) => {
+    setForm((prevState) => ({
+      ...prevState,
+      [field]: value,
+    }));
+  };
+
+  const sendForm = () => {
+    console.warn(form);
+    // async
   };
 
   return (
@@ -46,18 +65,22 @@ const Profile = () => {
         </TouchableOpacity>
       </View>
       <View style={[formContainer]}>
-        <View style={[formItem, center]}>
-          <Text style={itemlabel}>Name: </Text>
-          <TextInput style={inputStyle} />
-        </View>
-        <View style={[formItem, center]}>
-          <Text style={itemlabel}>Email: </Text>
-          <TextInput style={inputStyle} />
-        </View>
-        <View style={[formItem, center]}>
-          <Text style={itemlabel}>Name: </Text>
-          <TextInput style={inputStyle} />
-        </View>
+        <CustomInput
+          name="name"
+          label="Name:"
+          handleChange={handleChangeText}
+        />
+        <CustomInput
+          name="email"
+          label="Email:"
+          handleChange={handleChangeText}
+        />
+        <CustomInput
+          name="phone"
+          label="Phone:"
+          handleChange={handleChangeText}
+        />
+        <CustomButton label="send" handleClick={sendForm} />
       </View>
     </Layout>
   );

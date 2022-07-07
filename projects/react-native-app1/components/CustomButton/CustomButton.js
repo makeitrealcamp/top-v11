@@ -3,12 +3,12 @@ import { TouchableOpacity, Text } from "react-native";
 
 import styles from "./style";
 
-const { buttonStyle } = styles;
+const { buttonStyle, textStyle } = styles;
 
 const CustomButton = ({ handleClick, label }) => {
   return (
     <TouchableOpacity onPress={handleClick} style={buttonStyle}>
-      <Text>{label}</Text>
+      <Text style={textStyle}>{label}</Text>
     </TouchableOpacity>
   );
 };

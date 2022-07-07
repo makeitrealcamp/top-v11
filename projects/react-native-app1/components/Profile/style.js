@@ -21,20 +21,6 @@ const styles = StyleSheet.create({
     padding: 20,
     marginTop: "5%",
   },
-  formItem: {
-    flexDirection: "row",
-    margin: 10,
-  },
-  itemlabel: {
-    fontSize: 20,
-  },
-  inputStyle: {
-    borderColor: "gray",
-    borderWidth: 1,
-    borderStyle: "solid",
-    width: "80%",
-    borderRadius: 6,
-  },
   borderColor: {
     borderColor: "red",
     borderWidth: 1,
