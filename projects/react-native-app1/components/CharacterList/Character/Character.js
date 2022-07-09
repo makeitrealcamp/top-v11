@@ -3,13 +3,15 @@ import { View, Image, Text } from "react-native";
 
 import styles from "./style";
 
-const { imgStyle } = styles;
+const { container, imgStyle, text, textContainer } = styles;
 
 const Character = ({ image, name }) => {
   return (
-    <View>
+    <View style={container}>
       <Image source={{ uri: image }} style={imgStyle} />
-      <Text>{name}</Text>
+      <View style={textContainer}>
+        <Text style={text}>{name}</Text>
+      </View>
     </View>
   );
 };
