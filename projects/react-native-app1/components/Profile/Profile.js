@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 import { Layout } from "../Layout";
@@ -45,12 +45,12 @@ const Profile = () => {
   };
 
   const sendForm = () => {
-    console.warn(form);
+    //console.warn(form);
     // async
   };
 
   return (
-    <Layout>
+    <ScrollView>
       <View style={[titleContainer, center]}>
         <Text style={title}>Profile</Text>
       </View>
@@ -82,7 +82,7 @@ const Profile = () => {
         />
         <CustomButton label="send" handleClick={sendForm} />
       </View>
-    </Layout>
+    </ScrollView>
   );
 };
 

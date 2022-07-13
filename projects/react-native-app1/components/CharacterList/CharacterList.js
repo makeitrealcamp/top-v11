@@ -16,7 +16,7 @@ const CharacterList = () => {
   const getAllCharacters = async () => {
     if (data.currentPage <= LIMINT_OF_PAGES) {
       const dataCharacters = await getAllCharactersAsync(data.currentPage);
-      console.warn(dataCharacters);
+
       setData((prevState) => ({
         characters: [...prevState.characters, ...dataCharacters],
         currentPage: prevState.currentPage + 1,
