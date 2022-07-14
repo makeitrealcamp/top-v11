@@ -5,8 +5,9 @@ import { CustomInput } from "../CustomInput";
 import { CustomButton } from "../CustomButton";
 
 const Login = ({ navigation }) => {
+  console.log("Navigation ", navigation);
   const goToHome = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Drawer");
   };
 
   return (
