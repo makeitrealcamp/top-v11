@@ -1,5 +1,6 @@
-import { useState } from "react";
 import "react-native-gesture-handler";
+import { useState } from "react";
+
 import { NavigationContainer } from "@react-navigation/native";
 
 import { StackNavigation } from "./navigation";
