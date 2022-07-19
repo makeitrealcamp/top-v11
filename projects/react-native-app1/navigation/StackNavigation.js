@@ -7,6 +7,8 @@ import DrawerNavigation from "./DrawerNavigation";
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = ({ isAuthenticated }) => {
+  console.warn("[StackNavigation]: isAuthenticated", isAuthenticated);
+
   return (
     <Stack.Navigator
       screenOptions={{
