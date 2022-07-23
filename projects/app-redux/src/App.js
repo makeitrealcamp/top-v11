@@ -1,21 +1,35 @@
 import { useState } from "react";
-import "./App.css";
-import { Message, MessageLocal } from "./Message";
+import { connect } from "react-redux";
 
-function App() {
-  const [text, setText] = useState("");
+import { Message, MessageLocal } from "./components/Message";
+import { Pokemons } from "./components/Pokemons";
+import { updateMessage } from "./redux/actions/messsageAction";
+
+function App({ message, updateMessage }) {
+  //const [text, setText] = useState("");
 
   const setMessage = (text) => {
-    setText(text);
+    //setText(text);
+    updateMessage(text);
   };
 
   return (
     <div className="App">
       <MessageLocal setMessage={setMessage} />
       <hr />
-      <Message text={text} />
+      <Message text={message} />
+      <Pokemons />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({ messageReducer }) => ({
+  message: messageReducer.message,
+});
+
+const mapDispathToProps = {
+  updateMessage,
+};
+
+//export default App;
+export default connect(mapStateToProps, mapDispathToProps)(App);
