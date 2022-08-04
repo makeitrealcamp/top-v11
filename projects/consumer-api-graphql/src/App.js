@@ -1,19 +1,47 @@
-import { useEffect } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useEffect, useState } from "react";
+import { useMutation } from "@apollo/client";
 
-import { GET_ALL_CLIENTS } from "./graphql/queries";
+import { ClientList } from "./components/Clients";
+import { ADD_CLIENT } from "./graphql/queries";
+import { client } from "./graphql/apolloClient";
 
 function App() {
-  const { loading, error, data } = useQuery(GET_ALL_CLIENTS);
+  const [showForm, setShowForm] = useState(false);
+  const [addClient, { loading, error, data }] = useMutation(ADD_CLIENT);
 
-  useEffect(() => {}, []);
+  const showFormCreate = () => {
+    setShowForm(true);
+  };
 
-  console.log("loading", loading, "error", error, "data", data);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      name: e.target[0].value,
+      phone: e.target[1].value,
+    };
 
-  if (loading) return <h1>Loading.....</h1>;
-  if (error) return <h1>Error....</h1>;
+    addClient({ variables: data });
+    await client.refetchQueries({
+      include: "active",
+    });
+  };
 
-  return <div className="App">Apollo client</div>;
+  return (
+    <div>
+      <button onClick={showFormCreate}>Crear cliente</button>
+      {showForm && (
+        <form onSubmit={handleSubmit}>
+          <label>Name:</label>
+          <input type="text"></input>
+          <label>Phone:</label>
+          <input type="numer"></input>
+          <input type="submit" value="Create" />
+        </form>
+      )}
+
+      <ClientList />
+    </div>
+  );
 }
 
 export default App;

@@ -9,3 +9,13 @@ export const GET_ALL_CLIENTS = gql`
     }
   }
 `;
+
+export const ADD_CLIENT = gql`
+  mutation addClient($name: String, $phone: String) {
+    addClient(name: $name, phone: $phone) {
+      id
+      name
+      phone
+    }
+  }
+`;

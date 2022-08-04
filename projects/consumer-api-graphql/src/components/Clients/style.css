@@ -1,0 +1,18 @@
+.client-container {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.client-container h1 {
+  color: blue;
+}
+
+const resolvers = {
+  Query: {
+    books: () => books,
+  },
+};
